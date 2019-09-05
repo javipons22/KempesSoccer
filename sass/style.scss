@@ -1,0 +1,9 @@
+@import'partials/reset';
+@import'partials/variables';
+.code {
+    margin: 0 auto;
+    color: $color-fondo;
+    h1 {
+        margin: 23px;
+    }
+}
