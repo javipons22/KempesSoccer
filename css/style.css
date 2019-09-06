@@ -133,12 +133,125 @@ table {
   border-spacing: 0;
 }
 
-.code {
-  margin: 0 auto;
-  color: #aaa;
+/*
+-moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
+-webkit-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
+*/
+/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+.menu-wrapper {
+  width: 20px;
+  height: 11px;
+  cursor: pointer;
 }
-.code h1 {
-  margin: 23px;
+
+.hamburger-menu,
+.hamburger-menu:after,
+.hamburger-menu:before {
+  width: 15px;
+  height: 2px;
+}
+
+.hamburger-menu {
+  position: relative;
+  transform: translateY(5px);
+  background: #222;
+  transition: all 0ms 300ms;
+}
+
+.hamburger-menu.animate {
+  background: rgba(255, 255, 255, 0);
+}
+
+.hamburger-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  background: #222;
+  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  background: #222;
+  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:after {
+  top: 0;
+  transform: rotate(45deg);
+  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:before {
+  bottom: 0;
+  transform: rotate(-45deg);
+  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #F7F4E6 url("../img/pastofinal.png");
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  /* ====== LOGO ======= */
+  /* ====== FIN LOGO ======= */
+  /* ====== BOTON MENU ======= */
+  /* ====== FIN BOTON MENU ======= */
+}
+header .contenedor-logo {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header .logo {
+  height: 3em;
+  position: relative;
+}
+header .logo img {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+header .logo img:nth-child(1) {
+  position: absolute;
+  z-index: 0;
+}
+header .logo img:nth-child(2) {
+  position: absolute;
+  z-index: 10;
+  left: 1.8em;
+}
+header .texto-logo img {
+  height: 0.5em;
+}
+header .menu-icon {
+  font-size: 0.8rem;
+  font-weight: bold;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  color: #222;
+  display: flex;
+  background: linear-gradient(to bottom, #ffffff 0%, #f4e6a8 100%);
+  padding: 1em;
+  opacity: 0.9;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+header .menu-icon span {
+  margin-right: 0.3em;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

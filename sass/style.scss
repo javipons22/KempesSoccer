@@ -1,9 +1,66 @@
 @import'partials/reset';
 @import'partials/variables';
-.code {
-    margin: 0 auto;
-    color: $color-fondo;
-    h1 {
-        margin: 23px;
+@import'partials/hamb-icon';
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: $color-blanco-suave url('../img/pastofinal.png');
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    /* ====== LOGO ======= */
+    .contenedor-logo {
+        font-size: 15px; // De aca se cambia el tamaño del logo (porque esta todo en em)
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+    .logo {
+        height: 3em;
+        position: relative;
+        img {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        img:nth-child(1) {
+            //pelota logo
+            position: absolute;
+            z-index: 0;
+        }
+        img:nth-child(2) {
+            //letras logo
+            position: absolute;
+            z-index: 10;
+            left: 1.8em;
+        }
+    }
+    .texto-logo img {
+        height: 0.5em;
+    }
+    /* ====== FIN LOGO ======= */
+    /* ====== BOTON MENU ======= */
+    .menu-icon {
+        font-size: 0.8rem;
+        font-weight: bold;
+        border: 0.05em solid rgba(100, 100, 100, 0.3);
+        color: $color-icono-menu;
+        display: flex;
+        background: $gradiente-general;
+        padding: 1em;
+        opacity: 0.9;
+        border-radius: 0.3em;
+        cursor: pointer;
+        span {
+            margin-right: 0.3em;
+            cursor: pointer;
+        }
+    }
+    /* ====== FIN BOTON MENU ======= */
 }
