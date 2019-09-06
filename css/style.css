@@ -135,9 +135,8 @@ table {
 
 /*
 -moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
--webkit-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
+-webkit-linear-gradient(top, #ffffff 0%, #f4e6a8 100%);
 */
-/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 .menu-wrapper {
   width: 20px;
   height: 11px;
@@ -196,6 +195,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* ======== HEADER ========= */
 header {
   display: flex;
   align-items: center;
@@ -243,7 +243,7 @@ header .menu-icon {
   border: 0.05em solid rgba(100, 100, 100, 0.3);
   color: #222;
   display: flex;
-  background: linear-gradient(to bottom, #ffffff 0%, #f4e6a8 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
   padding: 1em;
   opacity: 0.9;
   border-radius: 0.3em;
@@ -252,6 +252,51 @@ header .menu-icon {
 header .menu-icon span {
   margin-right: 0.3em;
   cursor: pointer;
+}
+
+/* ======= Fin HEADER======= */
+/* ======== BANNER ========= */
+#banner {
+  padding: 3em 1em;
+  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
+  background-size: cover;
+}
+#banner .titulo {
+  margin-bottom: 2.5em;
+}
+#banner .titulo img {
+  width: 85%;
+  display: inline-block;
+}
+#banner h1 {
+  font-weight: bold;
+  color: #F2361C;
+  font-size: 1.6em;
+  width: 5%;
+  display: inline-block;
+  position: relative;
+  right: 9%;
+  top: 0.65em;
+}
+#banner p {
+  margin: 2.5em 1.8rem;
+  font-size: 0.8em;
+  line-height: 1.5em;
+}
+#banner p strong {
+  font-weight: bold;
+}
+#banner .boton {
+  font-weight: bold;
+  margin: 0 1.8rem;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+#banner .boton:hover {
+  background: #f4e6a8;
 }
 
 /*# sourceMappingURL=style.css.map */
