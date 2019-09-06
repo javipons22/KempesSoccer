@@ -111,3 +111,51 @@
             }
         }
     }
+    /* ======== FIN BANNER ========= */
+    /* ======== SECCION INFO ========= */
+    
+    #info {
+        background-color: $fondo-section;
+        padding: 3em 1em;
+        >a {
+            background: #fff;
+            height: 70px;
+            margin: 20px 0;
+            border-radius: 0.3em;
+            display: flex;
+            text-decoration: none;
+            color: $fondo-section;
+        }
+        >a:nth-child(1) {
+            border-left: 10px solid $color-servicio-1;
+        }
+        >a:nth-child(2) {
+            border-left: 10px solid $color-servicio-2;
+        }
+        >a:nth-child(3) {
+            border-left: 10px solid $color-servicio-3;
+        }
+        img {
+            height: 92%;
+            margin: 3px 5px;
+        }
+        h2 {
+            display: flex;
+            font-weight: bold;
+            color: $fondo-section;
+            width: 74%;
+            background: $color-blanco-suave;
+            text-align: right;
+            border-radius: 0 0.3em 0.3em 0;
+            font-size: 1.35em;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 0 15px 10px 0;
+        }
+        a>div {
+            background: white;
+            height: 100%;
+            width: 25%;
+            text-align: center;
+        }
+    }
