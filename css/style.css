@@ -195,6 +195,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* ======== HEADER ========= */
 header {
   display: flex;
@@ -260,6 +264,7 @@ header .menu-icon span {
   padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
   background-size: cover;
+  background-position: center;
 }
 #banner .titulo {
   margin-bottom: 2.5em;
@@ -288,12 +293,13 @@ header .menu-icon span {
 }
 #banner .boton {
   font-weight: bold;
-  margin: 0 1.8rem;
   padding: 1em 1.5em;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
   display: inline-block;
   border-radius: 0.3em;
   cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  margin: 0 1.8rem;
 }
 #banner .boton:hover {
   background: #f4e6a8;
@@ -345,6 +351,60 @@ header .menu-icon span {
   height: 100%;
   width: 25%;
   text-align: center;
+}
+
+#imagenes {
+  padding: 3em 1em;
+  background: linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), url("../img/cancha.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#imagenes h1 {
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  font-size: 22px;
+  padding: 0.7em 1.5em;
+}
+#imagenes h1 span {
+  text-align: right;
+  font-size: 0.7em;
+  font-weight: 400;
+  display: block;
+}
+#imagenes > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.5em 0;
+}
+#imagenes > div:first-of-type i {
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  padding: 1em 0.7em;
+  cursor: pointer;
+}
+#imagenes > div > div {
+  flex-grow: 1;
+  margin: 0 1em;
+}
+#imagenes > div > div div img {
+  width: 100%;
+  padding: 0.8em;
+  background: #F7F4E6;
+}
+#imagenes > div > div div img:first-child {
+  margin-bottom: 0.5em;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,18 @@ $fondo-section: #3A3A3A;
 $color-servicio-1:#FF3000;
 $color-servicio-2:#FFEA00;
 $color-servicio-3:#7DFF00;
+$padding-movil: 3em 1em;
+// MIXINS
+@mixin boton-titulo {
+    font-weight: bold;
+    padding: 1em 1.5em;
+    background: $gradiente-general;
+    display: inline-block;
+    border-radius: 0.3em;
+    cursor: pointer;
+    border: 0.05em solid rgba(100, 100, 100, 0.3);
+}
+
 
 /*
 -moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),

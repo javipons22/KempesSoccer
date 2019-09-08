@@ -4,6 +4,10 @@
     body {
         font-family: 'Montserrat', sans-serif;
     }
+    
+    * {
+        box-sizing: border-box;
+    }
     /* ======== HEADER ========= */
     
     header {
@@ -69,10 +73,11 @@
     /* ======== BANNER ========= */
     
     #banner {
-        padding: 3em 1em;
+        padding: $padding-movil;
         background: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), /* bottom, image */
         url('../img/kempes.jpg');
         background-size: cover;
+        background-position: center;
         .titulo {
             margin-bottom: 2.5em;
         }
@@ -99,13 +104,8 @@
             }
         }
         .boton {
-            font-weight: bold;
+            @include boton-titulo;
             margin: 0 1.8rem;
-            padding: 1em 1.5em;
-            background: $gradiente-general;
-            display: inline-block;
-            border-radius: 0.3em;
-            cursor: pointer;
             &:hover {
                 background: rgba(244, 230, 168, 1);
             }
@@ -116,7 +116,7 @@
     
     #info {
         background-color: $fondo-section;
-        padding: 3em 1em;
+        padding: $padding-movil;
         >a {
             background: #fff;
             height: 70px;
@@ -157,5 +157,49 @@
             height: 100%;
             width: 25%;
             text-align: center;
+        }
+    }
+    
+    #imagenes {
+        padding: $padding-movil;
+        background: linear-gradient( rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), /* bottom, image */
+        url('../img/cancha.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        h1 {
+            @include boton-titulo;
+            font-size: 22px;
+            padding: 0.7em 1.5em;
+            span {
+                text-align: right;
+                font-size: 0.7em;
+                font-weight: 400;
+                display: block;
+            }
+        }
+        >div:first-of-type {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2.5em 0;
+            i {
+                @include boton-titulo;
+                padding: 1em 0.7em;
+                cursor: pointer;
+            }
+        }
+        >div>div {
+            flex-grow: 1;
+            margin: 0 1em;
+            div img {
+                width: 100%;
+                padding: 0.8em;
+                background: $color-blanco-suave;
+            }
+            div img:first-child {
+                // margen a la foto de arriba solamente
+                margin-bottom: 0.5em;
+            }
         }
     }
