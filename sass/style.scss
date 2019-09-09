@@ -11,6 +11,11 @@
     /* ======== HEADER ========= */
     
     header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -19,6 +24,11 @@
         background-size: 100% 50%;
         background-repeat: no-repeat;
         background-position: bottom;
+        // Sombra header
+        -webkit-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+        -moz-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+        box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+        // Fin sombra header
         /* ====== LOGO ======= */
         .contenedor-logo {
             font-size: 15px; // De aca se cambia el tamaño del logo (porque esta todo en em)
@@ -73,11 +83,15 @@
     /* ======== BANNER ========= */
     
     #banner {
+        margin-top: 80px;
         padding: $padding-movil;
         background: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), /* bottom, image */
         url('../img/kempes.jpg');
         background-size: cover;
         background-position: center;
+        >div {
+            max-width: 390px;
+        }
         .titulo {
             margin-bottom: 2.5em;
         }
@@ -159,6 +173,8 @@
             text-align: center;
         }
     }
+    /* ======== FIN SECCION INFO ========= */
+    /* ======== SECCION IMAGENES ========= */
     
     #imagenes {
         padding: $padding-movil;
@@ -203,3 +219,40 @@
             }
         }
     }
+    /* ======== FIN SECCION IMAGENES ========= */
+    /* ======== FOOTER ========= */
+    
+    footer {
+        padding: $padding-movil;
+        background: $fondo-footer;
+        h1 {
+            font-size: 22px;
+            letter-spacing: 0.2em;
+            color: $color-input-footer;
+            display: block;
+            text-align: center;
+        }
+        form {
+            margin: 1.9em 2em;
+            font-size: 22px;
+            input,
+            textarea {
+                font-family: 'Montserrat', sans-serif;
+                box-sizing: border-box;
+                display: block;
+                width: 100%;
+                background: $color-input-footer;
+                color: $color-texto-footer;
+                border: none;
+                border-radius: 0.3em;
+                font-size: 0.60em;
+                padding: 0.8em;
+                margin: 1.5em 0;
+            }
+            input[type=submit] {
+                background: $rojo-general;
+                color: #fff;
+            }
+        }
+    }
+    /* ======== FIN FOOTER ========= */

@@ -201,6 +201,11 @@ body {
 
 /* ======== HEADER ========= */
 header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -209,6 +214,9 @@ header {
   background-size: 100% 50%;
   background-repeat: no-repeat;
   background-position: bottom;
+  -webkit-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+  -moz-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+  box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
   /* ====== LOGO ======= */
   /* ====== FIN LOGO ======= */
   /* ====== BOTON MENU ======= */
@@ -261,10 +269,14 @@ header .menu-icon span {
 /* ======= Fin HEADER======= */
 /* ======== BANNER ========= */
 #banner {
+  margin-top: 80px;
   padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
   background-size: cover;
   background-position: center;
+}
+#banner > div {
+  max-width: 390px;
 }
 #banner .titulo {
   margin-bottom: 2.5em;
@@ -353,6 +365,8 @@ header .menu-icon span {
   text-align: center;
 }
 
+/* ======== FIN SECCION INFO ========= */
+/* ======== SECCION IMAGENES ========= */
 #imagenes {
   padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), url("../img/cancha.jpg");
@@ -406,5 +420,43 @@ header .menu-icon span {
 #imagenes > div > div div img:first-child {
   margin-bottom: 0.5em;
 }
+
+/* ======== FIN SECCION IMAGENES ========= */
+/* ======== FOOTER ========= */
+footer {
+  padding: 3em 1em;
+  background: #000111;
+}
+footer h1 {
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  color: #4B4B4C;
+  display: block;
+  text-align: center;
+}
+footer form {
+  margin: 1.9em 2em;
+  font-size: 22px;
+}
+footer form input,
+footer form textarea {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  background: #4B4B4C;
+  color: #B7B7B7;
+  border: none;
+  border-radius: 0.3em;
+  font-size: 0.6em;
+  padding: 0.8em;
+  margin: 1.5em 0;
+}
+footer form input[type=submit] {
+  background: #F2361C;
+  color: #fff;
+}
+
+/* ======== FIN FOOTER ========= */
 
 /*# sourceMappingURL=style.css.map */
