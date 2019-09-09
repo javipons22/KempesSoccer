@@ -12,90 +12,124 @@
 </head>
 
 <body>
-
     <!-- inicio header -->
     <header>
-        <div class="contenedor-logo">
-            <div class="logo">
-                <img src="img/pelota.svg" alt="logo pelota">
-                <img src="img/ks.svg" alt="logo letra">
+        <div class="container">
+            <div class="contenedor-logo">
+                <div class="logo">
+                    <img src="img/pelota.svg" alt="logo pelota">
+                    <img src="img/ks.svg" alt="logo letra">
+                </div>
+                <div class="texto-logo">
+                    <img src="img/logotexto.svg" alt="logo texto">
+                </div>
             </div>
-            <div class="texto-logo">
-                <img src="img/logotexto.svg" alt="logo texto">
+            <div class="menu-icon">
+                <span>MENU</span>
+                <div class="menu-wrapper">
+                    <div class="hamburger-menu"></div>
+                </div>
             </div>
+            <img src="img/logotexto.svg" alt="logo texto">
         </div>
-        <div class="menu-icon">
-            <span>MENU</span>
-            <div class="menu-wrapper">
-                <div class="hamburger-menu"></div>
-            </div>
-        </div>
-
+        <img src="img/pastofinal.png" alt="decoracion header">
+        <!-- nav -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#home">HOME</a>
+                </li>
+                <li>
+                    <a href="#tour">INFO TOUR</a>
+                </li>
+                <li>
+                    <a href="#img">IMAGENES</a>
+                </li>
+                <li>
+                    <a href="#conta">CONTACTO</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- fin nav -->
     </header>
     <!-- fin header -->
 
-    <!-- seccion 1 (banner)  -->
-    <section id="banner">
-        <div class="titulo">
-            <img src="img/logotexto.svg" alt="texto kempessoccer">
-            <h1>TOUR</h1>
-        </div>
-        <p><strong>KEMPESSOCCER</strong> le ofrece en Sudamérica un servicio diferente a lo que respecta a clubes profesionales organizandoles su gira por Argentina y brindándoles competencias con equipos Argentinos , midiendo asi sus fuerzas futbolísticas.
-            Bajo la dirección general de <strong>Mario Alberto Kempes</strong>.
-        </p>
-        <div class="boton">MÁS INFO</div>
-    </section>
-    <!-- fin seccion 1 (banner)  -->
 
-    <!-- seccion 2 (info)  -->
-    <section id="info">
-        <a href="#" target="_blank">
-            <div>
-                <img src="img/trofeo.png" alt="trofeo">
-            </div>
-            <h2>LA EMPRESA</h2>
-        </a>
-        <a href="#pdf2" target="_blank">
-            <div>
-                <img src="img/cono.png" alt="cono">
-            </div>
-            <h2>SERVICIOS</h2>
-        </a>
-        <a href="#pdf3" target="_blank">
-            <div>
-                <img src="img/jugador.png" alt="jugador">
-            </div>
-            <h2>ACTIVIDADES</h2>
-        </a>
-    </section>
-    <!-- fin seccion 2 (info)  -->
-
-    <!-- seccion 3 (imagenes)  -->
-    <section id="imagenes">
-        <h1>DE VISITANTES<span>CASOS DE ÉXITO</span></h1>
-        <div>
-            <i class="fas fa-chevron-left"></i>
-            <div>
-                <div>
-                    <img src="img/fotos kempes/1.JPG" alt="imagen 1">
-                    <img src="img/fotos kempes/2.JPG" alt="imagen 2">
+    <!-- contenido -->
+    <main>
+        <!-- seccion 1 (banner)  -->
+        <section id="banner">
+            <div class="container">
+                <div class="caja-banner">
+                    <div class="titulo">
+                        <img src="img/logotexto.svg" alt="texto kempessoccer">
+                        <h1>TOUR</h1>
+                    </div>
+                    <p><strong>KEMPESSOCCER</strong> le ofrece en Sudamérica un servicio diferente a lo que respecta a clubes profesionales organizandoles su gira por Argentina y brindándoles competencias con equipos Argentinos , midiendo asi sus fuerzas
+                        futbolísticas. Bajo la dirección general de <strong>Mario Alberto Kempes</strong>.
+                    </p>
+                    <div class="boton">MÁS INFO</div>
                 </div>
             </div>
-            <i class="fas fa-chevron-right"></i>
+        </section>
+        <!-- fin seccion 1 (banner)  -->
 
-    </section>
-    <!-- fin seccion 3 (imagenes)  -->
+        <!-- seccion 2 (info)  -->
+        <section id="info">
+            <div class="container">
+                <a href="#" target="_blank">
+                    <div>
+                        <img src="img/trofeo.png" alt="trofeo">
+                    </div>
+                    <h2>LA EMPRESA</h2>
+                </a>
+                <a href="#pdf2" target="_blank">
+                    <div>
+                        <img src="img/cono.png" alt="cono">
+                    </div>
+                    <h2>SERVICIOS</h2>
+                </a>
+                <a href="#pdf3" target="_blank">
+                    <div>
+                        <img src="img/jugador.png" alt="jugador">
+                    </div>
+                    <h2>ACTIVIDADES</h2>
+                </a>
+            </div>
+        </section>
+        <!-- fin seccion 2 (info)  -->
 
+        <!-- seccion 3 (imagenes)  -->
+        <section id="imagenes">
+            <div class="container">
+                <h1>DE VISITANTES<span>CASOS DE ÉXITO</span></h1>
+                <div>
+                    <i class="fas fa-chevron-left"></i>
+                    <div>
+                        <div>
+                            <img src="img/fotos kempes/1.JPG" alt="imagen 1">
+                            <img src="img/fotos kempes/2.JPG" alt="imagen 2">
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+        </section>
+        <!-- fin seccion 3 (imagenes)  -->
+    </main>
+    <!-- fin contenido -->
     <!-- inicio footer -->
     <footer>
-        <h1>Envianos tu consulta !</h1>
-        <form>
-            <input type="text" name="firstname" placeholder="ingresa tu nombre completo">
-            <input type="text" name="pais" placeholder="ingresa tu país">
-            <input type="text" name="email" placeholder="ingresa tu e-mail">
-            <textarea name="mensaje" placeholder="ingresa tu mensaje" cols="40" rows="4"></textarea>
-            <input type="submit" value="ENVIAR consulta">
-        </form>
+        <div class="container">
+            <h1>Envianos tu consulta !</h1>
+            <form>
+                <input type="text" name="firstname" placeholder="ingresa tu nombre completo">
+                <input type="text" name="pais" placeholder="ingresa tu país">
+                <input type="text" name="email" placeholder="ingresa tu e-mail">
+                <textarea name="mensaje" placeholder="ingresa tu mensaje" cols="40" rows="4"></textarea>
+                <input type="submit" value="ENVIAR consulta">
+            </form>
+        </div>
     </footer>
     <!-- fin footer -->
 

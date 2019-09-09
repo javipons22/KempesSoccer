@@ -1,136 +1,230 @@
-    @import'partials/reset';
-    @import'partials/variables';
-    @import'partials/hamb-icon';
-    body {
-        font-family: 'Montserrat', sans-serif;
-    }
-    
-    * {
-        box-sizing: border-box;
-    }
-    /* ======== HEADER ========= */
-    
-    header {
-        position: fixed;
-        left: 0;
+/* @TODO (cosas que faltan hacer)
+- ajustar que no se muevan los elementos del nav al hacer hover ( arreglando el border)
+- ajustar los elementos del nav para que ocupen todo el ancho del li 
+- agregar transicion al hacer hover de los elementos del nav  */
+
+@import'partials/reset';
+@import'partials/variables';
+@import'partials/hamb-icon';
+
+/* ======== ESTILOS GENERALES ========= */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+
+/* ======== FIN STILOS GENERALES ========= */
+
+
+/* ======== HEADER ========= */
+
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    padding: 10px 15px;
+    background: $color-blanco-suave;
+    // Sombra header
+    -webkit-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+    -moz-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+    box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+    // Fin sombra header
+    >img {
+        position: absolute;
+        bottom: 0;
         right: 0;
-        top: 0;
-        z-index: 10;
+        left: 0;
+        height: 50%;
+        width: 100%;
+        z-index: 9;
+    }
+    .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 15px;
-        background: $color-blanco-suave url('../img/pastofinal.png');
-        background-size: 100% 50%;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        // Sombra header
-        -webkit-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
-        -moz-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
-        box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
-        // Fin sombra header
-        /* ====== LOGO ======= */
-        .contenedor-logo {
-            font-size: 15px; // De aca se cambia el tamaño del logo (porque esta todo en em)
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        >img {
+            display: none;
         }
-        .logo {
-            height: 3em;
-            position: relative;
-            img {
-                height: 100%;
-                padding: 0;
-                margin: 0;
-            }
-            img:nth-child(1) {
-                //pelota logo
-                position: absolute;
-                z-index: 0;
-            }
-            img:nth-child(2) {
-                //letras logo
-                position: absolute;
-                z-index: 10;
-                left: 1.8em;
-            }
+    }
+    /* ====== LOGO ======= */
+    .contenedor-logo {
+        font-size: 15px; // De aca se cambia el tamaño del logo (porque esta todo en em)
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 10;
+    }
+    .logo {
+        height: 3em;
+        position: relative;
+        img {
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
-        .texto-logo img {
-            height: 0.5em;
+        img:nth-child(1) {
+            //pelota logo
+            position: absolute;
+            z-index: 0;
         }
-        /* ====== FIN LOGO ======= */
-        /* ====== BOTON MENU ======= */
-        .menu-icon {
-            font-size: 0.8rem;
-            font-weight: bold;
-            border: 0.05em solid rgba(100, 100, 100, 0.3);
-            color: $color-icono-menu;
-            display: flex;
-            background: $gradiente-general;
-            padding: 1em;
-            opacity: 0.9;
-            border-radius: 0.3em;
+        img:nth-child(2) {
+            //letras logo
+            position: absolute;
+            z-index: 10;
+            left: 1.8em;
+        }
+    }
+    .texto-logo img {
+        height: 0.5em;
+    }
+    /* ====== FIN LOGO ======= */
+    /* ====== BOTON MENU ======= */
+    .menu-icon {
+        font-size: 0.8rem;
+        font-weight: bold;
+        border: 0.05em solid rgba(100, 100, 100, 0.3);
+        color: $color-icono-menu;
+        display: flex;
+        background: $gradiente-general;
+        padding: 1em;
+        opacity: 0.9;
+        border-radius: 0.3em;
+        cursor: pointer;
+        span {
+            margin-right: 0.3em;
             cursor: pointer;
-            span {
-                margin-right: 0.3em;
-                cursor: pointer;
-            }
         }
-        /* ====== FIN BOTON MENU ======= */
     }
-    /* ======= Fin HEADER======= */
-    /* ======== BANNER ========= */
-    
-    #banner {
-        margin-top: 80px;
-        padding: $padding-movil;
-        background: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), /* bottom, image */
-        url('../img/kempes.jpg');
-        background-size: cover;
-        background-position: center;
-        >div {
-            max-width: 390px;
+    /* ====== FIN BOTON MENU ======= */
+}
+
+
+/* ======= Fin HEADER======= */
+
+
+/* ======= NAV ======= */
+
+nav {
+    z-index: 20;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    width: 100%;
+    ul {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 800px;
+        @include boton-titulo;
+        // sobreescribimos el padding del mixin de arriba:
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        &:hover {
+            background: $gradiente-general-opaco;
         }
-        .titulo {
-            margin-bottom: 2.5em;
-        }
-        .titulo img {
-            width: 85%;
-            display: inline-block;
-        }
-        h1 {
-            font-weight: bold;
-            color: $rojo-general;
-            font-size: 1.6em;
-            width: 5%;
-            display: inline-block;
-            position: relative;
-            right: 9%;
-            top: 0.65em;
-        }
-        p {
-            margin: 2.5em 1.8rem;
-            font-size: 0.80em;
-            line-height: 1.5em;
-            strong {
-                font-weight: bold;
+        li {
+            font-size: 1rem;
+            display: flex;
+            text-align: center;
+            width: 191px;
+            a {
+                display: inline-block;
+                width: 100%;
+                min-width: 191px;
+                margin: 1em 0;
+                padding: 0;
+                border-right: 1px solid #999;
             }
-        }
-        .boton {
-            @include boton-titulo;
-            margin: 0 1.8rem;
+            &:last-child a {
+                border-right: none;
+            }
             &:hover {
-                background: rgba(244, 230, 168, 1);
+                box-sizing: border-box;
+                border-bottom: 5px solid $color-servicio-1;
             }
         }
     }
-    /* ======== FIN BANNER ========= */
-    /* ======== SECCION INFO ========= */
-    
-    #info {
-        background-color: $fondo-section;
-        padding: $padding-movil;
+    a {
+        color: black;
+        font-weight: 700;
+        text-decoration: none;
+    }
+}
+
+
+/* ======= Fin NAV======= */
+
+
+/* ======== BANNER ========= */
+
+#banner {
+    margin-top: 80px;
+    padding: $padding-movil;
+    background: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), /* bottom, image */
+    url('../img/kempes.jpg');
+    background-size: cover;
+    background-position: center;
+    >div {
+        max-width: 390px;
+    }
+    .titulo {
+        margin-bottom: 2.5em;
+    }
+    .titulo img {
+        width: 85%;
+        display: inline-block;
+    }
+    h1 {
+        font-weight: bold;
+        color: $rojo-general;
+        font-size: 1.6em;
+        width: 5%;
+        display: inline-block;
+        position: relative;
+        right: 9%;
+        top: 0.65em;
+    }
+    p {
+        margin: 2.5em 1.8rem;
+        font-size: 0.80em;
+        line-height: 1.5em;
+        strong {
+            font-weight: bold;
+        }
+    }
+    .boton {
+        @include boton-titulo;
+        margin: 0 1.8rem;
+        &:hover {
+            background: rgba(244, 230, 168, 1);
+        }
+    }
+}
+
+
+/* ======== FIN BANNER ========= */
+
+
+/* ======== SECCION INFO ========= */
+
+#info {
+    background-color: $fondo-section;
+    padding: $padding-movil;
+    .container {
         >a {
             background: #fff;
             height: 70px;
@@ -173,27 +267,33 @@
             text-align: center;
         }
     }
-    /* ======== FIN SECCION INFO ========= */
-    /* ======== SECCION IMAGENES ========= */
-    
-    #imagenes {
-        padding: $padding-movil;
-        background: linear-gradient( rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), /* bottom, image */
-        url('../img/cancha.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        h1 {
-            @include boton-titulo;
-            font-size: 22px;
-            padding: 0.7em 1.5em;
-            span {
-                text-align: right;
-                font-size: 0.7em;
-                font-weight: 400;
-                display: block;
-            }
+}
+
+
+/* ======== FIN SECCION INFO ========= */
+
+
+/* ======== SECCION IMAGENES ========= */
+
+#imagenes {
+    padding: $padding-movil;
+    background: linear-gradient( rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), /* bottom, image */
+    url('../img/cancha.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    h1 {
+        @include boton-titulo;
+        font-size: 22px;
+        padding: 0.7em 1.5em;
+        span {
+            text-align: right;
+            font-size: 0.7em;
+            font-weight: 400;
+            display: block;
         }
+    }
+    >.container {
         >div:first-of-type {
             display: flex;
             justify-content: space-between;
@@ -219,40 +319,87 @@
             }
         }
     }
-    /* ======== FIN SECCION IMAGENES ========= */
-    /* ======== FOOTER ========= */
-    
-    footer {
-        padding: $padding-movil;
-        background: $fondo-footer;
-        h1 {
-            font-size: 22px;
-            letter-spacing: 0.2em;
-            color: $color-input-footer;
+}
+
+
+/* ======== FIN SECCION IMAGENES ========= */
+
+
+/* ======== FOOTER ========= */
+
+footer {
+    padding: $padding-movil;
+    background: $fondo-footer;
+    h1 {
+        font-size: 22px;
+        letter-spacing: 0.2em;
+        color: $color-input-footer;
+        display: block;
+        text-align: center;
+    }
+    form {
+        margin: 1.9em 2em;
+        font-size: 22px;
+        input,
+        textarea {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
             display: block;
-            text-align: center;
+            width: 100%;
+            background: $color-input-footer;
+            color: $color-texto-footer;
+            border: none;
+            border-radius: 0.3em;
+            font-size: 0.60em;
+            padding: 0.8em;
+            margin: 1.5em 0;
         }
-        form {
-            margin: 1.9em 2em;
-            font-size: 22px;
-            input,
-            textarea {
-                font-family: 'Montserrat', sans-serif;
-                box-sizing: border-box;
-                display: block;
-                width: 100%;
-                background: $color-input-footer;
-                color: $color-texto-footer;
-                border: none;
-                border-radius: 0.3em;
-                font-size: 0.60em;
-                padding: 0.8em;
-                margin: 1.5em 0;
+        input[type=submit] {
+            background: $rojo-general;
+            color: #fff;
+        }
+    }
+}
+
+
+/* ======== FIN FOOTER ========= */
+
+
+/* ======== MEDIA QUERIES ========= */
+
+@include mq('xl') {
+    header {
+        padding: 15px 0 30px 0;
+        .container {
+            .menu-icon,
+            .texto-logo {
+                display: none;
             }
-            input[type=submit] {
-                background: $rojo-general;
-                color: #fff;
+            .contenedor-logo {
+                font-size: 22px; // cambiamos el tamaño del logo para pantallas mas grandes
+            }
+            >img {
+                display: inline-block;
+                align-self: flex-end;
+                transform: translateY(-12%);
             }
         }
     }
-    /* ======== FIN FOOTER ========= */
+    nav {
+        display: inline-block;
+    }
+    #banner {
+        background: url('../img/banner.jpg');
+        background-size: cover;
+        height: 50vh;
+        margin-top: 111px;
+        display: flex;
+        align-items: center;
+        .container {
+            max-width: 1024px;
+        }
+        .caja-banner {
+            width: 50%;
+        }
+    }
+}
