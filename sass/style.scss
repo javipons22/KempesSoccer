@@ -6,6 +6,7 @@
 - ajustar todo a REM y EM 
 - comprimir imagenes que faltan
 - borrar lo que sobra del media query mq(XL)
+- poner logo en esquina de imagenes
 */
 
 @import'partials/reset';
@@ -340,9 +341,9 @@ nav {
 /* ======== FIN SECCION IMAGENES ========= */
 
 
-/* ======== FOOTER ========= */
+/* ======== SECCION CONTACTO ========= */
 
-footer {
+#contacto {
     padding: $padding-movil;
     background: $fondo-footer;
     h1 {
@@ -369,15 +370,31 @@ footer {
             padding: 0.8em;
             margin: 1.5em 0;
         }
+        input::placeholder,
+        textarea::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $color-texto-footer;
+        }
+        textarea:-ms-input-placeholder,
+        input:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: $color-texto-footer;
+        }
+        textarea::-ms-input-placeholder,
+        input::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: $color-texto-footer;
+        }
         input[type=submit] {
             background: $rojo-general;
             color: #fff;
+            cursor: pointer;
         }
     }
 }
 
 
-/* ======== FIN FOOTER ========= */
+/* ======== FIN SECCION CONTACTO ========= */
 
 
 /* ======== MEDIA QUERIES ========= */
@@ -458,6 +475,26 @@ footer {
                 div img:first-child {
                     margin-bottom: 0;
                 }
+            }
+        }
+    }
+    #contacto {
+        form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            input {
+                flex-basis: 32%;
+            }
+            input,
+            textarea {
+                margin: 10px 0;
+                padding: 20px;
+                border-radius: 1em;
+            }
+            input[type="submit"] {
+                flex-basis: 100%;
             }
         }
     }

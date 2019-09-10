@@ -6,6 +6,7 @@
 - ajustar todo a REM y EM 
 - comprimir imagenes que faltan
 - borrar lo que sobra del media query mq(XL)
+- poner logo en esquina de imagenes
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -516,24 +517,24 @@ nav a {
 }
 
 /* ======== FIN SECCION IMAGENES ========= */
-/* ======== FOOTER ========= */
-footer {
+/* ======== SECCION CONTACTO ========= */
+#contacto {
   padding: 3em 1em;
   background: #000111;
 }
-footer h1 {
+#contacto h1 {
   font-size: 22px;
   letter-spacing: 0.2em;
   color: #4B4B4C;
   display: block;
   text-align: center;
 }
-footer form {
+#contacto form {
   margin: 1.9em 2em;
   font-size: 22px;
 }
-footer form input,
-footer form textarea {
+#contacto form input,
+#contacto form textarea {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
   display: block;
@@ -546,12 +547,28 @@ footer form textarea {
   padding: 0.8em;
   margin: 1.5em 0;
 }
-footer form input[type=submit] {
+#contacto form input::placeholder,
+#contacto form textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #B7B7B7;
+}
+#contacto form textarea:-ms-input-placeholder,
+#contacto form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #B7B7B7;
+}
+#contacto form textarea::-ms-input-placeholder,
+#contacto form input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #B7B7B7;
+}
+#contacto form input[type=submit] {
   background: #F2361C;
   color: #fff;
+  cursor: pointer;
 }
 
-/* ======== FIN FOOTER ========= */
+/* ======== FIN SECCION CONTACTO ========= */
 /* ======== MEDIA QUERIES ========= */
 @media (min-width: 768px) {
   #info {
@@ -628,6 +645,25 @@ footer form input[type=submit] {
   }
   #imagenes .container > div > div div img:first-child {
     margin-bottom: 0;
+  }
+
+  #contacto form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #contacto form input {
+    flex-basis: 32%;
+  }
+  #contacto form input,
+#contacto form textarea {
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 1em;
+  }
+  #contacto form input[type=submit] {
+    flex-basis: 100%;
   }
 }
 @media (min-width: 1024px) {
