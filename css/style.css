@@ -3,7 +3,9 @@
 - ajustar los elementos del nav para que ocupen todo el ancho del li 
 - agregar transicion al hacer hover de los elementos del nav
 - agregar animacion pelota al fondo del nav
--ajustar imagenes de info servicios con photoshop para eliminar margenes
+- ajustar todo a REM y EM 
+- comprimir imagenes que faltan
+- borrar lo que sobra del media query mq(XL)
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -281,10 +283,11 @@ header .menu-icon {
   border: 0.05em solid rgba(100, 100, 100, 0.3);
   color: #222;
   display: flex;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   padding: 1em;
   opacity: 0.9;
   border-radius: 0.3em;
+  z-index: 11;
   cursor: pointer;
 }
 header .menu-icon span {
@@ -308,7 +311,7 @@ nav ul {
   max-width: 800px;
   font-weight: bold;
   padding: 1em 1.5em;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
   border-radius: 0.3em;
   cursor: pointer;
@@ -388,7 +391,7 @@ nav a {
 #banner .boton {
   font-weight: bold;
   padding: 1em 1.5em;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
   border-radius: 0.3em;
   cursor: pointer;
@@ -404,6 +407,7 @@ nav a {
 #info {
   background-color: #3A3A3A;
   padding: 3em 1em;
+  position: relative;
 }
 #info .container > a {
   background: #fff;
@@ -413,6 +417,7 @@ nav a {
   display: flex;
   text-decoration: none;
   color: #3A3A3A;
+  z-index: 9;
 }
 #info .container > a:nth-child(1) {
   border-left: 10px solid #FF3000;
@@ -446,6 +451,9 @@ nav a {
   width: 25%;
   text-align: center;
 }
+#info > img {
+  display: none;
+}
 
 /* ======== FIN SECCION INFO ========= */
 /* ======== SECCION IMAGENES ========= */
@@ -459,7 +467,7 @@ nav a {
 #imagenes h1 {
   font-weight: bold;
   padding: 1em 1.5em;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
   border-radius: 0.3em;
   cursor: pointer;
@@ -482,7 +490,7 @@ nav a {
 #imagenes > .container > div:first-of-type i {
   font-weight: bold;
   padding: 1em 1.5em;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 230, 168, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
   border-radius: 0.3em;
   cursor: pointer;
@@ -494,8 +502,12 @@ nav a {
   flex-grow: 1;
   margin: 0 1em;
 }
+#imagenes > .container > div > div div {
+  text-align: center;
+}
 #imagenes > .container > div > div div img {
   width: 100%;
+  max-width: 400px;
   padding: 0.8em;
   background: #F7F4E6;
 }
@@ -541,6 +553,83 @@ footer form input[type=submit] {
 
 /* ======== FIN FOOTER ========= */
 /* ======== MEDIA QUERIES ========= */
+@media (min-width: 768px) {
+  #info {
+    position: relative;
+  }
+  #info .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  #info .container > a {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    height: 100%;
+    transition: transform 0.25s ease-in-out;
+  }
+  #info .container > a:nth-child(1) {
+    border: none;
+    border-top: 15px solid #FF3000;
+  }
+  #info .container > a:nth-child(2) {
+    border: none;
+    border-top: 15px solid #FFEA00;
+  }
+  #info .container > a:nth-child(3) {
+    border: none;
+    border-top: 15px solid #7DFF00;
+  }
+  #info .container > a:hover {
+    transform: scale(1.25);
+    transition: transform 0.25s ease-in-out;
+  }
+  #info .container img {
+    height: 200px;
+    margin: 30px 15px;
+  }
+  #info .container h2 {
+    display: flex;
+    font-weight: bold;
+    color: #3A3A3A;
+    width: 100%;
+    background: #F7F4E6;
+    text-align: left;
+    border-radius: 0 0 0.3em 0.3em;
+    font-size: 1.65em;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px 8px;
+  }
+  #info > img {
+    display: none;
+    height: 85%;
+    position: absolute;
+    align-items: center;
+    right: -3%;
+    top: 2.75em;
+    z-index: 8;
+  }
+
+  #imagenes .container > div > div {
+    flex-grow: 1;
+    margin: 0 15px;
+  }
+  #imagenes .container > div > div > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  #imagenes .container > div > div div img {
+    width: 48%;
+    max-width: 1000px;
+    padding: 0.8em;
+    background: #F7F4E6;
+  }
+  #imagenes .container > div > div div img:first-child {
+    margin-bottom: 0;
+  }
+}
 @media (min-width: 1024px) {
   header {
     padding: 15px 0 30px 0;
@@ -577,6 +666,9 @@ header .container .texto-logo {
     width: 50%;
   }
 
+  #info {
+    position: relative;
+  }
   #info .container {
     display: flex;
     justify-content: space-between;
@@ -587,6 +679,7 @@ header .container .texto-logo {
     flex-direction: column;
     border: none;
     height: 100%;
+    transition: transform 0.25s ease-in-out;
   }
   #info .container > a:nth-child(1) {
     border: none;
@@ -600,9 +693,13 @@ header .container .texto-logo {
     border: none;
     border-top: 15px solid #7DFF00;
   }
+  #info .container > a:hover {
+    transform: scale(1.25);
+    transition: transform 0.25s ease-in-out;
+  }
   #info .container img {
     height: 250px;
-    margin: 30px 0;
+    margin: 30px 15px;
   }
   #info .container h2 {
     display: flex;
@@ -616,6 +713,15 @@ header .container .texto-logo {
     align-items: flex-start;
     justify-content: flex-start;
     padding: 15px 8px;
+  }
+  #info > img {
+    display: flex;
+    height: 85%;
+    position: absolute;
+    align-items: center;
+    right: -3%;
+    top: 2.75em;
+    z-index: 8;
   }
 }
 
