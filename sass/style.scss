@@ -1,12 +1,16 @@
 /* @TODO (cosas que faltan hacer)
-- ajustar que no se muevan los elementos del nav al hacer hover ( arreglando el border)
 - ajustar los elementos del nav para que ocupen todo el ancho del li 
 - agregar transicion al hacer hover de los elementos del nav
-- agregar animacion pelota al fondo del nav
+- terminar nav version movil y tablet
 - ajustar todo a REM y EM 
 - comprimir imagenes que faltan
 - borrar lo que sobra del media query mq(XL)
 - poner logo en esquina de imagenes
+- cambiar link footer (ghipsio) a pagina de facebook a crear
+- controlar que anden todos los links
+- terminar bien slideshow imagenes
+- scroll al hacer click elementos nav
+- en banner hacer fuente kempes soccer y poner titulo como h1
 */
 
 @import'partials/reset';
@@ -47,7 +51,7 @@ header {
     -moz-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
     box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
     // Fin sombra header
-    >img {
+    .fondo-header {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -55,6 +59,17 @@ header {
         height: 50%;
         width: 100%;
         z-index: 9;
+    }
+    .pelota-header {
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 8;
+        left: -100%;
+        animation: animacionPelota infinite;
+        animation-duration: 12s;
+        animation-timing-function: linear;
+        animation-fill-mode: backwards;
     }
     .container {
         display: flex;
@@ -132,36 +147,43 @@ nav {
     width: 100%;
     ul {
         margin: 0 auto;
-        width: 100%;
         max-width: 800px;
         @include boton-titulo;
         // sobreescribimos el padding del mixin de arriba:
         padding: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
         &:hover {
             background: $gradiente-general-opaco;
+            transition: all 1s ease-in-out;
         }
         li {
             font-size: 1rem;
             display: flex;
             text-align: center;
             width: 191px;
+            display: flex;
             a {
+                position: relative;
+                box-sizing: border-box;
                 display: inline-block;
                 width: 100%;
-                min-width: 191px;
-                margin: 1em 0;
-                padding: 0;
-                border-right: 1px solid #999;
-            }
-            &:last-child a {
-                border-right: none;
+                padding: 15px 0;
             }
             &:hover {
-                box-sizing: border-box;
+                margin-bottom: -5px;
                 border-bottom: 5px solid $color-servicio-1;
+                transition: border-bottom 0.1s ease-in-out;
+            }
+            .nav-element::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                background: gray;
+                height: 15px;
+                width: 1px;
             }
         }
     }
@@ -232,6 +254,7 @@ nav {
     background-color: $fondo-section;
     padding: $padding-movil;
     position: relative;
+    overflow: hidden;
     .container {
         >a {
             background: #fff;
@@ -305,34 +328,44 @@ nav {
             display: block;
         }
     }
-    >.container {
-        >div:first-of-type {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 2.5em 0;
-            i {
-                @include boton-titulo;
-                padding: 1em 0.7em;
-                cursor: pointer;
-            }
+}
+
+.carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5em 0;
+    button {
+        @include boton-titulo;
+        padding: 1em 0.7em;
+        cursor: pointer;
+    }
+    &__track-container {
+        flex-grow: 1;
+        margin: 0 1em;
+    }
+    &__track {
+        position: relative; // para que las imagenes se puedan posicionar en absolute
+    }
+    .show-slide {
+        display: block;
+    }
+    .is-hidden {
+        visibility: hidden;
+    }
+    &__slide {
+        text-align: center;
+        position: relative;
+        display: none;
+        img {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.8em;
+            background: $color-blanco-suave;
         }
-        >div>div {
-            flex-grow: 1;
-            margin: 0 1em;
-            div {
-                text-align: center;
-                img {
-                    width: 100%;
-                    max-width: 400px;
-                    padding: 0.8em;
-                    background: $color-blanco-suave;
-                }
-            }
-            div img:first-child {
-                // margen a la foto de arriba solamente
-                margin-bottom: 0.5em;
-            }
+        img:first-child {
+            // margen a la foto de arriba solamente
+            margin-bottom: 0.5em;
         }
     }
 }
@@ -354,7 +387,7 @@ nav {
         text-align: center;
     }
     form {
-        margin: 1.9em 2em;
+        margin: 1.9em 2em 0 2em;
         font-size: 22px;
         input,
         textarea {
@@ -397,9 +430,84 @@ nav {
 /* ======== FIN SECCION CONTACTO ========= */
 
 
+/* ======== INICIO FOOTER ========= */
+
+footer {
+    background: $fondo-footer;
+    color: #fff;
+    text-align: left;
+    text-align: center;
+    .info-contacto-footer {
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+        flex-wrap: no-wrap;
+        padding: 1em 15px;
+        a {
+            font-size: 0.85em;
+            font-weight: 500;
+            margin: 0.3em 0;
+            display: flex;
+            align-items: center;
+            &:first-child {
+                margin-right: 1em;
+            }
+        }
+        i {
+            font-size: 1.9em;
+        }
+        span {
+            margin-left: 0.7em;
+            font-size: 0.7em;
+        }
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .copyright {
+        display: block;
+        font-size: 0.8em;
+        border-top: 1.5px solid $color-input-footer;
+        padding: 1.5em;
+        margin: 0 1em;
+        line-height: 1.5em;
+        span {
+            display: block;
+        }
+        a {
+            color: $rojo-general;
+            text-decoration: none;
+        }
+    }
+}
+
+
+/* ======== FIN FOOTER ========= */
+
+
 /* ======== MEDIA QUERIES ========= */
 
+@include mq('sm') {
+    .info-contacto-footer {
+        span {
+            font-size: 1.3em;
+        }
+    }
+}
+
 @include mq('lg') {
+    /* ANIMACION EN TABLET */
+    @keyframes animacionPelota {
+        0% {
+            left: -100;
+        }
+        100% {
+            left: 100%;
+            transform: rotate(3500deg);
+        }
+    }
+    /* FIN ANIMACION EN TABLET */
     #info {
         position: relative;
         .container {
@@ -457,27 +565,27 @@ nav {
             z-index: 8;
         }
     }
-    #imagenes {
-        .container {
-            >div>div {
-                flex-grow: 1;
-                margin: 0 15px;
-                >div {
-                    display: flex;
-                    justify-content: space-between;
-                }
-                div img {
-                    width: 48%;
-                    max-width: 1000px;
-                    padding: 0.8em;
-                    background: $color-blanco-suave;
-                }
-                div img:first-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-    }
+    // #imagenes {
+    //     .container {
+    //         >div>div {
+    //             flex-grow: 1;
+    //             margin: 0 15px;
+    //             >div {
+    //                 display: flex;
+    //                 justify-content: space-between;
+    //             }
+    //             div img {
+    //                 width: 48%;
+    //                 max-width: 1000px;
+    //                 padding: 0.8em;
+    //                 background: $color-blanco-suave;
+    //             }
+    //             div img:first-child {
+    //                 margin-bottom: 0;
+    //             }
+    //         }
+    //     }
+    // }
     #contacto {
         form {
             display: flex;
@@ -498,9 +606,30 @@ nav {
             }
         }
     }
+    footer {
+        .info-contacto-footer {
+            font-size: 1.5em;
+        }
+    }
+    header {
+        .contenedor-logo {
+            font-size: 19px;
+        }
+    }
 }
 
 @include mq('xl') {
+    /* ANIMACION EN LAPTOP */
+    @keyframes animacionPelota {
+        0% {
+            left: -100;
+        }
+        100% {
+            left: 100%;
+            transform: rotate(4700deg);
+        }
+    }
+    /* FIN ANIMACION EN LAPTOP */
     header {
         padding: 15px 0 30px 0;
         .container {

@@ -1,12 +1,16 @@
 /* @TODO (cosas que faltan hacer)
-- ajustar que no se muevan los elementos del nav al hacer hover ( arreglando el border)
 - ajustar los elementos del nav para que ocupen todo el ancho del li 
 - agregar transicion al hacer hover de los elementos del nav
-- agregar animacion pelota al fondo del nav
+- terminar nav version movil y tablet
 - ajustar todo a REM y EM 
 - comprimir imagenes que faltan
 - borrar lo que sobra del media query mq(XL)
 - poner logo en esquina de imagenes
+- cambiar link footer (ghipsio) a pagina de facebook a crear
+- controlar que anden todos los links
+- slideshow imagenes
+- scroll al hacer click elementos nav
+- en banner hacer fuente kempes soccer y poner titulo como h1
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -143,6 +147,15 @@ table {
   border-spacing: 0;
 }
 
+@keyframes animacionPelota {
+  0% {
+    left: -100;
+  }
+  100% {
+    left: 100%;
+    transform: rotate(2000deg);
+  }
+}
 /*
 -moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
 -webkit-linear-gradient(top, #ffffff 0%, #f4e6a8 100%);
@@ -233,7 +246,7 @@ header {
   /* ====== BOTON MENU ======= */
   /* ====== FIN BOTON MENU ======= */
 }
-header > img {
+header .fondo-header {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -241,6 +254,17 @@ header > img {
   height: 50%;
   width: 100%;
   z-index: 9;
+}
+header .pelota-header {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 8;
+  left: -100%;
+  animation: animacionPelota infinite;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
 }
 header .container {
   display: flex;
@@ -308,7 +332,6 @@ nav {
 }
 nav ul {
   margin: 0 auto;
-  width: 100%;
   max-width: 800px;
   font-weight: bold;
   padding: 1em 1.5em;
@@ -319,32 +342,40 @@ nav ul {
   border: 0.05em solid rgba(100, 100, 100, 0.3);
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 nav ul:hover {
   background: linear-gradient(to bottom, white 0%, rgba(244, 230, 168, 0.7) 100%);
+  transition: all 1s ease-in-out;
 }
 nav ul li {
   font-size: 1rem;
   display: flex;
   text-align: center;
   width: 191px;
+  display: flex;
 }
 nav ul li a {
+  position: relative;
+  box-sizing: border-box;
   display: inline-block;
   width: 100%;
-  min-width: 191px;
-  margin: 1em 0;
-  padding: 0;
-  border-right: 1px solid #999;
-}
-nav ul li:last-child a {
-  border-right: none;
+  padding: 15px 0;
 }
 nav ul li:hover {
-  box-sizing: border-box;
+  margin-bottom: -5px;
   border-bottom: 5px solid #FF3000;
+  transition: border-bottom 0.1s ease-in-out;
+}
+nav ul li .nav-element::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  background: gray;
+  height: 15px;
+  width: 1px;
 }
 nav a {
   color: black;
@@ -409,6 +440,7 @@ nav a {
   background-color: #3A3A3A;
   padding: 3em 1em;
   position: relative;
+  overflow: hidden;
 }
 #info .container > a {
   background: #fff;
@@ -482,13 +514,14 @@ nav a {
   font-weight: 400;
   display: block;
 }
-#imagenes > .container > div:first-of-type {
+
+.carousel {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 2.5em 0;
 }
-#imagenes > .container > div:first-of-type i {
+.carousel button {
   font-weight: bold;
   padding: 1em 1.5em;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
@@ -499,20 +532,32 @@ nav a {
   padding: 1em 0.7em;
   cursor: pointer;
 }
-#imagenes > .container > div > div {
+.carousel__track-container {
   flex-grow: 1;
   margin: 0 1em;
 }
-#imagenes > .container > div > div div {
-  text-align: center;
+.carousel__track {
+  position: relative;
 }
-#imagenes > .container > div > div div img {
+.carousel .show-slide {
+  display: block;
+  transition: all 2s ease-in-out;
+}
+.carousel .is-hidden {
+  visibility: hidden;
+}
+.carousel__slide {
+  text-align: center;
+  position: relative;
+  display: none;
+}
+.carousel__slide img {
   width: 100%;
   max-width: 400px;
   padding: 0.8em;
   background: #F7F4E6;
 }
-#imagenes > .container > div > div div img:first-child {
+.carousel__slide img:first-child {
   margin-bottom: 0.5em;
 }
 
@@ -530,7 +575,7 @@ nav a {
   text-align: center;
 }
 #contacto form {
-  margin: 1.9em 2em;
+  margin: 1.9em 2em 0 2em;
   font-size: 22px;
 }
 #contacto form input,
@@ -569,8 +614,76 @@ nav a {
 }
 
 /* ======== FIN SECCION CONTACTO ========= */
+/* ======== INICIO FOOTER ========= */
+footer {
+  background: #000111;
+  color: #fff;
+  text-align: left;
+  text-align: center;
+}
+footer .info-contacto-footer {
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: no-wrap;
+  padding: 1em 15px;
+}
+footer .info-contacto-footer a {
+  font-size: 0.85em;
+  font-weight: 500;
+  margin: 0.3em 0;
+  display: flex;
+  align-items: center;
+}
+footer .info-contacto-footer a:first-child {
+  margin-right: 1em;
+}
+footer .info-contacto-footer i {
+  font-size: 1.9em;
+}
+footer .info-contacto-footer span {
+  margin-left: 0.7em;
+  font-size: 0.7em;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .copyright {
+  display: block;
+  font-size: 0.8em;
+  border-top: 1.5px solid #4B4B4C;
+  padding: 1.5em;
+  margin: 0 1em;
+  line-height: 1.5em;
+}
+footer .copyright span {
+  display: block;
+}
+footer .copyright a {
+  color: #F2361C;
+  text-decoration: none;
+}
+
+/* ======== FIN FOOTER ========= */
 /* ======== MEDIA QUERIES ========= */
+@media (min-width: 576px) {
+  .info-contacto-footer span {
+    font-size: 1.3em;
+  }
+}
 @media (min-width: 768px) {
+  /* ANIMACION EN TABLET */
+  @keyframes animacionPelota {
+    0% {
+      left: -100;
+    }
+    100% {
+      left: 100%;
+      transform: rotate(3500deg);
+    }
+  }
+  /* FIN ANIMACION EN TABLET */
   #info {
     position: relative;
   }
@@ -629,24 +742,6 @@ nav a {
     z-index: 8;
   }
 
-  #imagenes .container > div > div {
-    flex-grow: 1;
-    margin: 0 15px;
-  }
-  #imagenes .container > div > div > div {
-    display: flex;
-    justify-content: space-between;
-  }
-  #imagenes .container > div > div div img {
-    width: 48%;
-    max-width: 1000px;
-    padding: 0.8em;
-    background: #F7F4E6;
-  }
-  #imagenes .container > div > div div img:first-child {
-    margin-bottom: 0;
-  }
-
   #contacto form {
     display: flex;
     flex-direction: row;
@@ -665,8 +760,27 @@ nav a {
   #contacto form input[type=submit] {
     flex-basis: 100%;
   }
+
+  footer .info-contacto-footer {
+    font-size: 1.5em;
+  }
+
+  header .contenedor-logo {
+    font-size: 19px;
+  }
 }
 @media (min-width: 1024px) {
+  /* ANIMACION EN LAPTOP */
+  @keyframes animacionPelota {
+    0% {
+      left: -100;
+    }
+    100% {
+      left: 100%;
+      transform: rotate(4700deg);
+    }
+  }
+  /* FIN ANIMACION EN LAPTOP */
   header {
     padding: 15px 0 30px 0;
   }

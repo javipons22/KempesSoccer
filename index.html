@@ -32,18 +32,19 @@
             </div>
             <img src="img/logotexto.svg" alt="logo texto">
         </div>
-        <img src="img/pastofinal.png" alt="decoracion header">
+        <img class="fondo-header" src="img/pastofinal.png" alt="decoracion header">
+        <img class="pelota-header" src="img/pelota.png" alt="pelota animacion header">
         <!-- nav -->
         <nav>
             <ul>
                 <li>
-                    <a href="#home">HOME</a>
+                    <a class="nav-element" href="#home">HOME</a>
                 </li>
                 <li>
-                    <a href="#tour">INFO TOUR</a>
+                    <a class="nav-element" href="#tour">INFO TOUR</a>
                 </li>
                 <li>
-                    <a href="#img">IMAGENES</a>
+                    <a class="nav-element" href="#img">IMAGENES</a>
                 </li>
                 <li>
                     <a href="#conta">CONTACTO</a>
@@ -77,7 +78,7 @@
         <!-- seccion 2 (info)  -->
         <section id="info">
             <div class="container">
-                <a href="#" target="_blank">
+                <a href="#pdf1" target="_blank">
                     <div>
                         <img src="img/trofeo.png" alt="trofeo">
                     </div>
@@ -104,16 +105,67 @@
         <section id="imagenes">
             <div class="container">
                 <h1>DE VISITANTES<span>CASOS DE ÉXITO</span></h1>
-                <div>
+                <div class="carousel">
+                    <button class="carousel__button carousel__button--left is-hidden"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel__track-container">
+                        <ul class="carousel__track">
+                            <li class="carousel__slide current-slide show-slide">
+                                <img src="img/fotos kempes/1.JPG" alt="imagen 1">
+                                <img src="img/fotos kempes/2.JPG" alt="imagen 2">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/fotos kempes/3.JPG" alt="imagen 1">
+                                <img src="img/fotos kempes/4.JPG" alt="imagen 2">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/fotos kempes/5.JPG" alt="imagen 1">
+                                <img src="img/fotos kempes/6.JPG" alt="imagen 2">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/fotos kempes/7.JPG" alt="imagen 1">
+                                <img src="img/fotos kempes/8.JPG" alt="imagen 2">
+                            </li>
+                            <!-- <li class="carousel_slide"></li>
+                            <li class="carousel_slide"></li>
+                            <li class="carousel_slide"></li>
+                            <li class="carousel_slide"></li> -->
+                        </ul>
+                    </div>
+                    <button class="carousel__button carousel__button--right"><i class="fas fa-chevron-right"></i></button>
+                    <!-- <div class="carousel_nav">
+                        <button class="carousel__indicator current_slide"></button>
+                        <button class="carousel__indicator"></button>
+                        <button class="carousel__indicator"></button>
+                        <button class="carousel__indicator"></button>
+                        <button class="carousel__indicator"></button>
+                    </div> -->
+                </div>
+                <!-- <div>
                     <i class="fas fa-chevron-left"></i>
-                    <div>
+                    <div id="imagenes-contenedor">
                         <div>
                             <img src="img/fotos kempes/1.JPG" alt="imagen 1">
                             <img src="img/fotos kempes/2.JPG" alt="imagen 2">
                         </div>
+                        <div>
+                            <img src="img/fotos kempes/3.JPG" alt="imagen 3">
+                            <img src="img/fotos kempes/4.JPG" alt="imagen 4">
+                        </div>
+                        <div>
+                            <img src="img/fotos kempes/5.JPG" alt="imagen 5">
+                            <img src="img/fotos kempes/6.JPG" alt="imagen 6">
+                        </div>
+                        <div>
+                            <img src="img/fotos kempes/7.JPG" alt="imagen 7">
+                            <img src="img/fotos kempes/8.JPG" alt="imagen 8">
+                        </div>
+                        <div>
+                            <img src="img/fotos kempes/9.JPG" alt="imagen 9">
+                            <img src="img/fotos kempes/10.JPG" alt="imagen 10">
+                        </div>
                     </div>
                     <i class="fas fa-chevron-right"></i>
-                </div>
+                </div> -->
 
         </section>
         <!-- fin seccion 3 (imagenes)  -->
@@ -133,11 +185,26 @@
         <!-- fin seccion 4 (contacto) -->
     </main>
     <!-- fin contenido -->
+    <!-- inicio footer -->
+    <footer>
+        <div class="container">
+            <div class="info-contacto-footer">
+                <a href="#whatsapp"><i class="fab fa-whatsapp"></i><span>+54 9 3515309656</span></a>
+                <a href="#mail"><i class="fas fa-envelope"></i><span>buffajuan@yahoo.com.ar</span></a>
+            </div>
+            <div class="copyright">
+                <span>&copy Todos los derechos reservados</span>
+                <span>Sitio creado por <a href="#">Ghipsio Web Design</a></span>
+            </div>
+        </div>
+    </footer>
+    <!-- fin footer -->
 
 
     <!-- scripts javascript -->
     <script src="js/jquery.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/carousel.js"></script>
     <!-- fin scripts javascript -->
 </body>
 
