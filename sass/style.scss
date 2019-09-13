@@ -14,7 +14,9 @@
 */
 
 @import'partials/reset';
+@import'partials/functions';
 @import'partials/variables';
+@import'partials/text';
 @import'partials/hamb-icon';
 
 /* ======== ESTILOS GENERALES ========= */
@@ -43,7 +45,7 @@ header {
     left: 0;
     right: 0;
     top: 0;
-    z-index: 10;
+    z-index: 11;
     padding: 10px 15px;
     background: $color-blanco-suave;
     // Sombra header
@@ -58,7 +60,7 @@ header {
         left: 0;
         height: 50%;
         width: 100%;
-        z-index: 9;
+        z-index: 11;
     }
     .pelota-header {
         height: 100%;
@@ -85,11 +87,12 @@ header {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        z-index: 10;
+        z-index: 12;
     }
     .logo {
         height: 3em;
         position: relative;
+        z-index: 13;
         img {
             height: 100%;
             padding: 0;
@@ -103,7 +106,7 @@ header {
         img:nth-child(2) {
             //letras logo
             position: absolute;
-            z-index: 10;
+            z-index: 13;
             left: 1.8em;
         }
     }
@@ -122,7 +125,7 @@ header {
         padding: 1em;
         opacity: 0.9;
         border-radius: 0.3em;
-        z-index: 11;
+        z-index: 12;
         cursor: pointer;
         span {
             margin-right: 0.3em;
@@ -145,6 +148,7 @@ nav {
     bottom: 0;
     transform: translateY(50%);
     width: 100%;
+    font-size: 16px;
     ul {
         margin: 0 auto;
         max-width: 800px;
@@ -159,7 +163,7 @@ nav {
             transition: all 1s ease-in-out;
         }
         li {
-            font-size: 1rem;
+            font-size: 1em;
             display: flex;
             text-align: center;
             width: 191px;
@@ -201,23 +205,48 @@ nav {
 /* ======== BANNER ========= */
 
 #banner {
-    margin-top: 80px;
-    padding: $padding-movil;
     background: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), /* bottom, image */
     url('../img/kempes.jpg');
     background-size: cover;
     background-position: center;
-    >div {
+    height: 100vh;
+    position: relative;
+    img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 50%;
+        object-fit: cover;
+        z-index: 8;
+        display: none;
+    }
+    >div:first-child {
+        background: white;
+        position: absolute;
+        left: 12%;
+        top: 0;
+        bottom: 0;
+        height: 150%;
+        width: 50%;
+        border-radius: 0 50% 50% 0;
+        z-index: 9;
+        display: none;
+    }
+    .container {
         max-width: 390px;
+        z-index: 10;
     }
     .titulo {
         margin-bottom: 2.5em;
+        width: 80%;
     }
     .titulo img {
         width: 85%;
         display: inline-block;
     }
-    h1:first-child {
+    h1 {
         font-family: kempes, sans-serif;
         font-weight: bold;
         font-size: 3.5rem;
@@ -225,24 +254,25 @@ nav {
         position: relative;
         letter-spacing: 4.5px;
     }
-    h1:last-child {
+    h2 {
         font-weight: bold;
         color: $rojo-general;
         font-size: 1.8rem;
         display: block;
         text-align: right;
         position: relative;
-        top: -0.5em;
+        top: -0.4em;
     }
     p {
-        margin: 2.5em 1.8rem;
-        font-size: 0.80em;
-        line-height: 1.5em;
+        margin: 2.5rem 1.8rem;
+        font-size: 0.9rem;
+        line-height: 1.75;
         strong {
             font-weight: bold;
         }
     }
     .boton {
+        font-size: 1.1rem;
         @include boton-titulo;
         margin: 0 1.8rem;
         &:hover {
@@ -262,6 +292,7 @@ nav {
     padding: $padding-movil;
     position: relative;
     overflow: hidden;
+    z-index: 10;
     .container {
         >a {
             background: #fff;
@@ -294,7 +325,6 @@ nav {
             background: $color-blanco-suave;
             text-align: right;
             border-radius: 0 0.3em 0.3em 0;
-            font-size: 1.35em;
             align-items: flex-end;
             justify-content: flex-end;
             padding: 0 15px 10px 0;
@@ -319,18 +349,17 @@ nav {
 
 #imagenes {
     padding: $padding-movil;
-    background: linear-gradient( rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), /* bottom, image */
-    url('../img/cancha.jpg');
+    background: linear-gradient( rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), url('../img/cancha.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    h1 {
+    h2 {
         @include boton-titulo;
-        font-size: 22px;
         padding: 0.7em 1.5em;
+        cursor: default;
         span {
             text-align: right;
-            font-size: 0.7em;
+            font-size: 0.7em; // en em porque depende del h1 anterior (es relativo a su tamaño)
             font-weight: 400;
             display: block;
         }
@@ -387,15 +416,14 @@ nav {
     padding: $padding-movil;
     background: $fondo-footer;
     h1 {
-        font-size: 22px;
+        font-size: 1.5rem;
         letter-spacing: 0.2em;
         color: $color-input-footer;
         display: block;
         text-align: center;
     }
     form {
-        margin: 1.9em 2em 0 2em;
-        font-size: 22px;
+        margin: 3.8rem 2rem 0 2rem;
         input,
         textarea {
             font-family: 'Montserrat', sans-serif;
@@ -405,10 +433,9 @@ nav {
             background: $color-input-footer;
             color: $color-texto-footer;
             border: none;
-            border-radius: 0.3em;
-            font-size: 0.60em;
-            padding: 0.8em;
-            margin: 1.5em 0;
+            border-radius: 0.3rem;
+            padding: 0.8rem;
+            margin: 1.3rem 0;
         }
         input::placeholder,
         textarea::placeholder {
@@ -514,6 +541,9 @@ footer {
             transform: rotate(3500deg);
         }
     }
+    html {
+        font-size: 17px;
+    }
     /* FIN ANIMACION EN TABLET */
     #info {
         position: relative;
@@ -556,7 +586,6 @@ footer {
                 background: $color-blanco-suave;
                 text-align: left;
                 border-radius: 0 0 0.3em 0.3em;
-                font-size: 1.65em;
                 align-items: flex-start;
                 justify-content: flex-start;
                 padding: 15px 8px;
@@ -572,28 +601,34 @@ footer {
             z-index: 8;
         }
     }
-    // #imagenes {
-    //     .container {
-    //         >div>div {
-    //             flex-grow: 1;
-    //             margin: 0 15px;
-    //             >div {
-    //                 display: flex;
-    //                 justify-content: space-between;
-    //             }
-    //             div img {
-    //                 width: 48%;
-    //                 max-width: 1000px;
-    //                 padding: 0.8em;
-    //                 background: $color-blanco-suave;
-    //             }
-    //             div img:first-child {
-    //                 margin-bottom: 0;
-    //             }
-    //         }
-    //     }
-    // }
+    #imagenes {
+        height: 100vh;
+        .carousel {
+            &__track {
+                flex-grow: 1;
+                margin: 0 15px;
+            }
+            &__slide {
+                //display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &__slide img {
+                width: 48%;
+                max-width: 1000px;
+                padding: 0.8em;
+                background: $color-blanco-suave;
+                object-fit: cover;
+            }
+            &__slide img:first-child {
+                margin-bottom: 0;
+            }
+        }
+    }
     #contacto {
+        h1 {
+            font-size: 1.8rem;
+        }
         form {
             display: flex;
             flex-direction: row;
@@ -636,6 +671,9 @@ footer {
             transform: rotate(4700deg);
         }
     }
+    html {
+        font-size: 18px;
+    }
     /* FIN ANIMACION EN LAPTOP */
     header {
         padding: 15px 0 30px 0;
@@ -660,15 +698,46 @@ footer {
     #banner {
         background: url('../img/banner.jpg');
         background-size: cover;
-        height: 50vh;
-        margin-top: 111px;
         display: flex;
         align-items: center;
+        h1 {
+            font-size: 3em;
+        }
         .container {
             max-width: 1024px;
         }
         .caja-banner {
+            width: 60%;
+        }
+        img {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
             width: 50%;
+            object-fit: cover;
+            z-index: 8
+        }
+        >div:first-child {
+            display: block;
+            background: white;
+            position: absolute;
+            left: 12%;
+            top: 0;
+            bottom: 0;
+            height: 150%;
+            width: 50%;
+            border-radius: 0 50% 50% 0;
+            z-index: 9;
+            overflow: hidden;
+        }
+        p {
+            margin: 2.5rem 1.8rem 2.5rem 0;
+        }
+        .boton {
+            margin: 0 1.8rem 0 0;
         }
     }
     #info {
@@ -712,7 +781,6 @@ footer {
                 background: $color-blanco-suave;
                 text-align: left;
                 border-radius: 0 0 0.3em 0.3em;
-                font-size: 1.85em;
                 align-items: flex-start;
                 justify-content: flex-start;
                 padding: 15px 8px;

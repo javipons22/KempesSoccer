@@ -1,5 +1,4 @@
 /* @TODO (cosas que faltan hacer)
-- ajustar los elementos del nav para que ocupen todo el ancho del li 
 - agregar transicion al hacer hover de los elementos del nav
 - terminar nav version movil y tablet
 - ajustar todo a REM y EM 
@@ -11,6 +10,7 @@
 - terminar bien slideshow imagenes
 - scroll al hacer click elementos nav
 - en banner hacer fuente kempes soccer y poner titulo como h1
+- optimizar scss sacando ids y menos nesting (usar BEM)
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -164,6 +164,23 @@ table {
 -moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
 -webkit-linear-gradient(top, #ffffff 0%, #f4e6a8 100%);
 */
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+input,
+textarea {
+  font-size: 0.8rem;
+}
+
 .menu-wrapper {
   width: 20px;
   height: 11px;
@@ -239,7 +256,7 @@ header {
   left: 0;
   right: 0;
   top: 0;
-  z-index: 10;
+  z-index: 11;
   padding: 10px 15px;
   background: #F7F4E6;
   -webkit-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
@@ -257,7 +274,7 @@ header .fondo-header {
   left: 0;
   height: 50%;
   width: 100%;
-  z-index: 9;
+  z-index: 11;
 }
 header .pelota-header {
   height: 100%;
@@ -283,11 +300,12 @@ header .contenedor-logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 10;
+  z-index: 12;
 }
 header .logo {
   height: 3em;
   position: relative;
+  z-index: 13;
 }
 header .logo img {
   height: 100%;
@@ -300,7 +318,7 @@ header .logo img:nth-child(1) {
 }
 header .logo img:nth-child(2) {
   position: absolute;
-  z-index: 10;
+  z-index: 13;
   left: 1.8em;
 }
 header .texto-logo img {
@@ -316,7 +334,7 @@ header .menu-icon {
   padding: 1em;
   opacity: 0.9;
   border-radius: 0.3em;
-  z-index: 11;
+  z-index: 12;
   cursor: pointer;
 }
 header .menu-icon span {
@@ -333,17 +351,18 @@ nav {
   bottom: 0;
   transform: translateY(50%);
   width: 100%;
+  font-size: 16px;
 }
 nav ul {
   margin: 0 auto;
   max-width: 800px;
   font-weight: bold;
-  padding: 1em 1.5em;
+  padding: 1rem 1.5rem;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
-  border-radius: 0.3em;
+  border-radius: 0.3rem;
   cursor: pointer;
-  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  border: 0.05rem solid rgba(100, 100, 100, 0.3);
   padding: 0;
   display: flex;
   justify-content: center;
@@ -354,7 +373,7 @@ nav ul:hover {
   transition: all 1s ease-in-out;
 }
 nav ul li {
-  font-size: 1rem;
+  font-size: 1em;
   display: flex;
   text-align: center;
   width: 191px;
@@ -390,55 +409,81 @@ nav a {
 /* ======= Fin NAV======= */
 /* ======== BANNER ========= */
 #banner {
-  margin-top: 80px;
-  padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
   background-size: cover;
   background-position: center;
+  height: 100vh;
+  position: relative;
 }
-#banner > div {
+#banner img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+  z-index: 8;
+  display: none;
+}
+#banner > div:first-child {
+  background: white;
+  position: absolute;
+  left: 12%;
+  top: 0;
+  bottom: 0;
+  height: 150%;
+  width: 50%;
+  border-radius: 0 50% 50% 0;
+  z-index: 9;
+  display: none;
+}
+#banner .container {
   max-width: 390px;
+  z-index: 10;
 }
 #banner .titulo {
   margin-bottom: 2.5em;
+  width: 80%;
 }
 #banner .titulo img {
   width: 85%;
   display: inline-block;
 }
-#banner h1:first-child {
+#banner h1 {
   font-family: kempes, sans-serif;
   font-weight: bold;
-  font-size: 3.5em;
+  font-size: 3.5rem;
   color: black;
   position: relative;
   letter-spacing: 4.5px;
 }
-#banner h1:last-child {
+#banner h2 {
   font-weight: bold;
   color: #F2361C;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   display: block;
   text-align: right;
   position: relative;
-  top: -0.5em;
+  top: -0.4em;
 }
 #banner p {
-  margin: 2.5em 1.8rem;
-  font-size: 0.8em;
-  line-height: 1.5em;
+  margin: 2.5rem 1.8rem;
+  font-size: 0.9rem;
+  line-height: 1.75;
 }
 #banner p strong {
   font-weight: bold;
 }
 #banner .boton {
+  font-size: 1.1rem;
   font-weight: bold;
-  padding: 1em 1.5em;
+  padding: 1rem 1.5rem;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
-  border-radius: 0.3em;
+  border-radius: 0.3rem;
   cursor: pointer;
-  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  border: 0.05rem solid rgba(100, 100, 100, 0.3);
   margin: 0 1.8rem;
 }
 #banner .boton:hover {
@@ -452,6 +497,7 @@ nav a {
   padding: 3em 1em;
   position: relative;
   overflow: hidden;
+  z-index: 10;
 }
 #info .container > a {
   background: #fff;
@@ -484,7 +530,6 @@ nav a {
   background: #F7F4E6;
   text-align: right;
   border-radius: 0 0.3em 0.3em 0;
-  font-size: 1.35em;
   align-items: flex-end;
   justify-content: flex-end;
   padding: 0 15px 10px 0;
@@ -508,18 +553,18 @@ nav a {
   background-repeat: no-repeat;
   background-position: center;
 }
-#imagenes h1 {
+#imagenes h2 {
   font-weight: bold;
-  padding: 1em 1.5em;
+  padding: 1rem 1.5rem;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
-  border-radius: 0.3em;
+  border-radius: 0.3rem;
   cursor: pointer;
-  border: 0.05em solid rgba(100, 100, 100, 0.3);
-  font-size: 22px;
+  border: 0.05rem solid rgba(100, 100, 100, 0.3);
   padding: 0.7em 1.5em;
+  cursor: default;
 }
-#imagenes h1 span {
+#imagenes h2 span {
   text-align: right;
   font-size: 0.7em;
   font-weight: 400;
@@ -534,12 +579,12 @@ nav a {
 }
 .carousel button {
   font-weight: bold;
-  padding: 1em 1.5em;
+  padding: 1rem 1.5rem;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
   display: inline-block;
-  border-radius: 0.3em;
+  border-radius: 0.3rem;
   cursor: pointer;
-  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  border: 0.05rem solid rgba(100, 100, 100, 0.3);
   padding: 1em 0.7em;
   cursor: pointer;
 }
@@ -578,15 +623,14 @@ nav a {
   background: #000111;
 }
 #contacto h1 {
-  font-size: 22px;
+  font-size: 1.5rem;
   letter-spacing: 0.2em;
   color: #4B4B4C;
   display: block;
   text-align: center;
 }
 #contacto form {
-  margin: 1.9em 2em 0 2em;
-  font-size: 22px;
+  margin: 3.8rem 2rem 0 2rem;
 }
 #contacto form input,
 #contacto form textarea {
@@ -597,10 +641,9 @@ nav a {
   background: #4B4B4C;
   color: #B7B7B7;
   border: none;
-  border-radius: 0.3em;
-  font-size: 0.6em;
-  padding: 0.8em;
-  margin: 1.5em 0;
+  border-radius: 0.3rem;
+  padding: 0.8rem;
+  margin: 1.3rem 0;
 }
 #contacto form input::placeholder,
 #contacto form textarea::placeholder {
@@ -693,6 +736,10 @@ footer .copyright a {
       transform: rotate(3500deg);
     }
   }
+  html {
+    font-size: 17px;
+  }
+
   /* FIN ANIMACION EN TABLET */
   #info {
     position: relative;
@@ -737,7 +784,6 @@ footer .copyright a {
     background: #F7F4E6;
     text-align: left;
     border-radius: 0 0 0.3em 0.3em;
-    font-size: 1.65em;
     align-items: flex-start;
     justify-content: flex-start;
     padding: 15px 8px;
@@ -752,6 +798,31 @@ footer .copyright a {
     z-index: 8;
   }
 
+  #imagenes {
+    height: 100vh;
+  }
+  #imagenes .carousel__track {
+    flex-grow: 1;
+    margin: 0 15px;
+  }
+  #imagenes .carousel__slide {
+    justify-content: space-between;
+    align-items: center;
+  }
+  #imagenes .carousel__slide img {
+    width: 48%;
+    max-width: 1000px;
+    padding: 0.8em;
+    background: #F7F4E6;
+    object-fit: cover;
+  }
+  #imagenes .carousel__slide img:first-child {
+    margin-bottom: 0;
+  }
+
+  #contacto h1 {
+    font-size: 1.8rem;
+  }
   #contacto form {
     display: flex;
     flex-direction: row;
@@ -790,6 +861,10 @@ footer .copyright a {
       transform: rotate(4700deg);
     }
   }
+  html {
+    font-size: 18px;
+  }
+
   /* FIN ANIMACION EN LAPTOP */
   header {
     padding: 15px 0 30px 0;
@@ -814,16 +889,47 @@ header .container .texto-logo {
   #banner {
     background: url("../img/banner.jpg");
     background-size: cover;
-    height: 50vh;
-    margin-top: 111px;
     display: flex;
     align-items: center;
+  }
+  #banner h1 {
+    font-size: 3em;
   }
   #banner .container {
     max-width: 1024px;
   }
   #banner .caja-banner {
+    width: 60%;
+  }
+  #banner img {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
     width: 50%;
+    object-fit: cover;
+    z-index: 8;
+  }
+  #banner > div:first-child {
+    display: block;
+    background: white;
+    position: absolute;
+    left: 12%;
+    top: 0;
+    bottom: 0;
+    height: 150%;
+    width: 50%;
+    border-radius: 0 50% 50% 0;
+    z-index: 9;
+    overflow: hidden;
+  }
+  #banner p {
+    margin: 2.5rem 1.8rem 2.5rem 0;
+  }
+  #banner .boton {
+    margin: 0 1.8rem 0 0;
   }
 
   #info {
@@ -869,7 +975,6 @@ header .container .texto-logo {
     background: #F7F4E6;
     text-align: left;
     border-radius: 0 0 0.3em 0.3em;
-    font-size: 1.85em;
     align-items: flex-start;
     justify-content: flex-start;
     padding: 15px 8px;

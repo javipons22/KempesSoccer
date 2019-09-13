@@ -17,12 +17,12 @@ $padding-movil: 3em 1em;
 // mixins
 @mixin boton-titulo {
     font-weight: bold;
-    padding: 1em 1.5em;
+    padding: 1rem 1.5rem;
     background: $gradiente-general;
     display: inline-block;
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     cursor: pointer;
-    border: 0.05em solid rgba(100, 100, 100, 0.3);
+    border: 0.05rem solid rgba(100, 100, 100, 0.3);
 }
 
 // media queries
