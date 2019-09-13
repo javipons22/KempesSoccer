@@ -1,5 +1,4 @@
 /* @TODO (cosas que faltan hacer)
-- ajustar los elementos del nav para que ocupen todo el ancho del li 
 - agregar transicion al hacer hover de los elementos del nav
 - terminar nav version movil y tablet
 - ajustar todo a REM y EM 
@@ -11,6 +10,7 @@
 - terminar bien slideshow imagenes
 - scroll al hacer click elementos nav
 - en banner hacer fuente kempes soccer y poner titulo como h1
+- optimizar scss sacando ids y menos nesting (usar BEM)
 */
 
 @import'partials/reset';
@@ -217,15 +217,22 @@ nav {
         width: 85%;
         display: inline-block;
     }
-    h1 {
+    h1:first-child {
+        font-family: kempes, sans-serif;
+        font-weight: bold;
+        font-size: 3.5rem;
+        color: black;
+        position: relative;
+        letter-spacing: 4.5px;
+    }
+    h1:last-child {
         font-weight: bold;
         color: $rojo-general;
-        font-size: 1.6em;
-        width: 5%;
-        display: inline-block;
+        font-size: 1.8rem;
+        display: block;
+        text-align: right;
         position: relative;
-        right: 9%;
-        top: 0.65em;
+        top: -0.5em;
     }
     p {
         margin: 2.5em 1.8rem;

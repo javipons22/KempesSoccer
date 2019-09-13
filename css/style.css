@@ -8,7 +8,7 @@
 - poner logo en esquina de imagenes
 - cambiar link footer (ghipsio) a pagina de facebook a crear
 - controlar que anden todos los links
-- slideshow imagenes
+- terminar bien slideshow imagenes
 - scroll al hacer click elementos nav
 - en banner hacer fuente kempes soccer y poner titulo como h1
 */
@@ -155,6 +155,10 @@ table {
     left: 100%;
     transform: rotate(2000deg);
   }
+}
+@font-face {
+  font-family: kempes;
+  src: url(../../fonts/kempes.ttf);
 }
 /*
 -moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
@@ -402,15 +406,22 @@ nav a {
   width: 85%;
   display: inline-block;
 }
-#banner h1 {
+#banner h1:first-child {
+  font-family: kempes, sans-serif;
+  font-weight: bold;
+  font-size: 3.5em;
+  color: black;
+  position: relative;
+  letter-spacing: 4.5px;
+}
+#banner h1:last-child {
   font-weight: bold;
   color: #F2361C;
-  font-size: 1.6em;
-  width: 5%;
-  display: inline-block;
+  font-size: 1.8em;
+  display: block;
+  text-align: right;
   position: relative;
-  right: 9%;
-  top: 0.65em;
+  top: -0.5em;
 }
 #banner p {
   margin: 2.5em 1.8rem;
@@ -541,7 +552,6 @@ nav a {
 }
 .carousel .show-slide {
   display: block;
-  transition: all 2s ease-in-out;
 }
 .carousel .is-hidden {
   visibility: hidden;

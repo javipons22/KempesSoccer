@@ -52,6 +52,11 @@ $breakpoints:( 'xs':575px, 'sm':576px, 'lg':768px, 'xl':1024px);
     }
 }
 
+@font-face {
+    font-family: kempes;
+    src: url(../../fonts/kempes.ttf);
+}
+
 
 /*
 -moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
