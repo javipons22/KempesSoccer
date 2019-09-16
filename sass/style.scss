@@ -40,9 +40,9 @@
         top: -111px;
     }
     
-    #info,
+    .info,
     #contacto,
-    #imagenes {
+    .imagenes {
         position: relative;
     }
     /* ======== FIN STILOS GENERALES ========= */
@@ -306,12 +306,13 @@
         }
         >img {
             display: none;
+            max-height: 100%;
         }
     }
     /* ======== FIN SECCION INFO ========= */
     /* ======== SECCION IMAGENES ========= */
     
-    #imagenes {
+    .imagenes {
         padding: $padding-movil;
         background: linear-gradient( rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), /* bottom, image */
         url('../img/cancha.jpg');
@@ -591,7 +592,7 @@
                 margin-bottom: 0;
             }
         }
-        #imagenes h1 {
+        .imagenes h1 {
             font-size: 1.65rem;
         }
         #contacto {
@@ -658,7 +659,7 @@
         nav {
             display: inline-block;
         }
-        #imagenes h1 {
+        .imagenes h1 {
             font-size: 1.8rem;
         }
         #banner {

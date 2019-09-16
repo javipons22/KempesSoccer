@@ -241,9 +241,9 @@ body {
   top: -111px;
 }
 
-#info,
+.info,
 #contacto,
-#imagenes {
+.imagenes {
   position: relative;
 }
 
@@ -512,18 +512,19 @@ nav a {
 }
 .info > img {
   display: none;
+  max-height: 100%;
 }
 
 /* ======== FIN SECCION INFO ========= */
 /* ======== SECCION IMAGENES ========= */
-#imagenes {
+.imagenes {
   padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), url("../img/cancha.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-#imagenes h1 {
+.imagenes h1 {
   font-weight: bold;
   padding: 1em 1.5em;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
@@ -535,7 +536,7 @@ nav a {
   padding: 0.7em 1.5em;
   cursor: default;
 }
-#imagenes h1 span {
+.imagenes h1 span {
   text-align: right;
   font-size: 0.7em;
   font-weight: 400;
@@ -803,7 +804,7 @@ footer .copyright a {
     margin-bottom: 0;
   }
 
-  #imagenes h1 {
+  .imagenes h1 {
     font-size: 1.65rem;
   }
 
@@ -866,7 +867,7 @@ header .container .texto-logo {
     display: inline-block;
   }
 
-  #imagenes h1 {
+  .imagenes h1 {
     font-size: 1.8rem;
   }
 
