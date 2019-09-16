@@ -7,7 +7,6 @@
 - cambiar link footer (ghipsio) a pagina de facebook a crear
 - controlar que anden todos los links
 - terminar bien slideshow imagenes
-- scroll al hacer click elementos nav
 - optimizar scss sacando ids y menos nesting (usar BEM)
 - animacion intro
 */
@@ -242,7 +241,7 @@ body {
 }
 
 .info,
-#contacto,
+.contacto,
 .imagenes {
   position: relative;
 }
@@ -343,15 +342,13 @@ header .menu-icon span {
 /* ======= NAV ======= */
 nav {
   z-index: 20;
-  display: none;
+  display: block;
   position: absolute;
   bottom: 0;
-  transform: translateY(50%);
-  width: 100%;
+  transform: translateY(105%);
+  width: 95%;
 }
 nav ul {
-  margin: 0 auto;
-  max-width: 800px;
   font-weight: bold;
   padding: 1em 1.5em;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
@@ -359,21 +356,22 @@ nav ul {
   border-radius: 0.3em;
   cursor: pointer;
   border: 0.05em solid rgba(100, 100, 100, 0.3);
-  padding: 0;
+  padding: 1em;
+  margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 100%;
-}
-nav ul:hover {
-  background: linear-gradient(to bottom, white 0%, rgba(244, 230, 168, 0.7) 100%);
-  transition: all 1s ease-in-out;
 }
 nav ul li {
   font-size: 1rem;
+  padding: 0.5em;
+  margin: 0.3em;
   display: flex;
-  text-align: center;
-  width: 191px;
+  text-align: left;
   display: flex;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  border-radius: 0.3em;
 }
 nav ul li a {
   position: relative;
@@ -383,18 +381,7 @@ nav ul li a {
   padding: 15px 0;
 }
 nav ul li:hover {
-  margin-bottom: -5px;
-  border-bottom: 5px solid #FF3000;
-  transition: border-bottom 0.1s ease-in-out;
-}
-nav ul li .nav-element::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  background: gray;
-  height: 15px;
-  width: 1px;
+  background: rgba(255, 255, 255, 0.5);
 }
 nav a {
   color: black;
@@ -590,23 +577,23 @@ nav a {
 
 /* ======== FIN SECCION IMAGENES ========= */
 /* ======== SECCION CONTACTO ========= */
-#contacto {
+.contacto {
   padding: 3em 1em;
   background: #000111;
 }
-#contacto h1 {
+.contacto h1 {
   font-size: 22px;
   letter-spacing: 0.2em;
   color: #4B4B4C;
   display: block;
   text-align: center;
 }
-#contacto form {
+.contacto form {
   margin: 1.9em 2em 0 2em;
   font-size: 22px;
 }
-#contacto form input,
-#contacto form textarea {
+.contacto form input,
+.contacto form textarea {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
   display: block;
@@ -619,22 +606,22 @@ nav a {
   padding: 0.8em;
   margin: 1.5em 0;
 }
-#contacto form input::placeholder,
-#contacto form textarea::placeholder {
+.contacto form input::placeholder,
+.contacto form textarea::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #B7B7B7;
 }
-#contacto form textarea:-ms-input-placeholder,
-#contacto form input:-ms-input-placeholder {
+.contacto form textarea:-ms-input-placeholder,
+.contacto form input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #B7B7B7;
 }
-#contacto form textarea::-ms-input-placeholder,
-#contacto form input::-ms-input-placeholder {
+.contacto form textarea::-ms-input-placeholder,
+.contacto form input::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #B7B7B7;
 }
-#contacto form input[type=submit] {
+.contacto form input[type=submit] {
   background: #F2361C;
   color: #fff;
   cursor: pointer;
@@ -646,24 +633,32 @@ footer {
   background: #000111;
   color: #fff;
   text-align: left;
-  text-align: center;
 }
 footer .info-contacto-footer {
-  font-size: 1em;
+  font-size: 1.5em;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex-wrap: no-wrap;
+  margin: 0 auto;
   padding: 1em 15px;
 }
 footer .info-contacto-footer a {
   font-size: 0.85em;
   font-weight: 500;
-  margin: 0.3em 0;
+  margin: 0 0.2em 1.5em 0.2em;
+  padding: 1em 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  border-radius: 0.3em;
+  border: 0.05em solid rgba(255, 255, 255, 0.3);
 }
-footer .info-contacto-footer a:first-child {
-  margin-right: 1em;
+footer .info-contacto-footer a i {
+  margin-bottom: 0.3em;
 }
 footer .info-contacto-footer i {
   font-size: 1.9em;
@@ -678,6 +673,7 @@ footer a {
 }
 footer .copyright {
   display: block;
+  text-align: center;
   font-size: 0.8em;
   border-top: 1.5px solid #4B4B4C;
   padding: 1.5em;
@@ -808,27 +804,28 @@ footer .copyright a {
     font-size: 1.65rem;
   }
 
-  #contacto form {
+  .contacto form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  #contacto form input {
+  .contacto form input {
     flex-basis: 32%;
   }
-  #contacto form input,
-#contacto form textarea {
+  .contacto form input,
+.contacto form textarea {
     margin: 10px 0;
     padding: 20px;
     border-radius: 1em;
   }
-  #contacto form input[type=submit] {
+  .contacto form input[type=submit] {
     flex-basis: 100%;
   }
 
   footer .info-contacto-footer {
     font-size: 1.5em;
+    flex-direction: row;
   }
 
   header .contenedor-logo {
@@ -861,10 +858,6 @@ header .container .texto-logo {
     display: inline-block;
     align-self: flex-end;
     transform: translateY(-12%);
-  }
-
-  nav {
-    display: inline-block;
   }
 
   .imagenes h1 {
@@ -913,8 +906,78 @@ header .container .texto-logo {
     display: flex;
   }
 
-  #contacto h1 {
+  .contacto h1 {
     font-size: 1.8rem;
+  }
+
+  .show-main-nav {
+    display: inline-block;
+  }
+
+  nav {
+    z-index: 20;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    width: 100%;
+  }
+  nav ul {
+    margin: 0 auto;
+    max-width: 800px;
+    font-weight: bold;
+    padding: 1em 1.5em;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+    display: inline-block;
+    border-radius: 0.3em;
+    cursor: pointer;
+    border: 0.05em solid rgba(100, 100, 100, 0.3);
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  nav ul:hover {
+    background: linear-gradient(to bottom, white 0%, rgba(244, 230, 168, 0.7) 100%);
+    transition: all 1s ease-in-out;
+  }
+  nav ul li {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    text-align: center;
+    width: 191px;
+    display: flex;
+    border: none;
+  }
+  nav ul li a {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0;
+  }
+  nav ul li:hover {
+    margin-bottom: -5px;
+    border-bottom: 5px solid #FF3000;
+    transition: border-bottom 0.1s ease-in-out;
+    background: none;
+  }
+  nav ul li .nav-element::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    background: gray;
+    height: 15px;
+    width: 1px;
+  }
+  nav a {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
   }
 }
 
