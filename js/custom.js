@@ -7,3 +7,7 @@
         // var cantidadSetImagenes = temp.length;
         // console.log(cantidadSetImagenes);
 })(jQuery);
+
+function expand() {
+    document.querySelector('.info').classList.add("expand");
+}
