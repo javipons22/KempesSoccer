@@ -1,0 +1,138 @@
+.container-preloader {
+    background: rgba(0, 0, 0, 1);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    top:0;
+    bottom:0;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    animation: fondo 1s linear forwards;
+    animation-delay: 3s;
+    z-index: 1000;
+}
+
+.container-preloader svg {
+    height:25%;
+}
+
+#logo-svg {
+    position: relative;
+    right:2%;
+}
+
+#pelota {
+    position: relative;
+    left:2%;
+}
+
+
+
+@keyframes fondo {
+    to {
+        opacity: 0;
+        z-index:-1;
+    }
+}
+
+
+/* LOGO */
+
+#logo-fill {
+    stroke: white;
+    stroke-width: 1px;
+    stroke-dasharray: 1380;
+    stroke-dashoffset: 1380;
+    animation: dash 2s linear forwards;
+    fill: rgba(255, 255, 255, 0);
+}
+
+#logo {
+    fill: rgba(202, 31, 36, 0);
+    animation: fill 2s linear forwards;
+}
+
+#contorno {
+    display: none;
+}
+
+@keyframes dash {
+    90% {
+        fill: rgba(255, 255, 255, 0)
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes fill {
+    90% {
+        fill: rgba(202, 31, 36, 0)
+    }
+    100% {
+        fill: rgba(202, 31, 36, 1);
+    }
+}
+
+@keyframes fill-contorno {
+    90% {
+        fill: rgba(255, 255, 255, 0)
+    }
+    100% {
+        fill: rgba(255, 255, 255, 1);
+    }
+}
+
+
+/* PELOTA */
+
+#lineas-pelota {
+    stroke: white;
+    stroke-width: 1px;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: dash-pelota 2s linear forwards;
+}
+
+#parte-pelota {
+    stroke: white;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: dash-pelota 2s linear forwards;
+}
+
+#fondo-pelota {
+    stroke: white;
+    stroke-width: 1px;
+    fill: none;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 500;
+    animation: dash-fondo-pelota 2s linear forwards;
+}
+
+@keyframes dash-pelota {
+    90% {
+        stroke: white;
+    }
+    100% {
+        stroke-width: 2px;
+        stroke-dashoffset: 0;
+        stroke: black;
+    }
+}
+
+@keyframes dash-fondo-pelota {
+    90% {
+        fill: rgba(255, 255, 255, 0);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgba(255, 255, 255, 1);
+    }
+}
