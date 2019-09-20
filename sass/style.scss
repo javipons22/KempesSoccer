@@ -243,6 +243,11 @@ nav {
             font-weight: bold;
         }
     }
+    .cta-principal, .cta-principal:visited,.cta-principal:active,.cta-principal:link {
+        text-decoration:none;
+        color: black;
+    }
+
     .boton {
         @include boton-titulo;
         margin: 0 1.8rem;

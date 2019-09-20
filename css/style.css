@@ -7,6 +7,7 @@
 - terminar bien slideshow imagenes
 - optimizar scss sacando ids y menos nesting (usar BEM)
 - animacion intro
+- comprimir pdf
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -430,6 +431,10 @@ nav a {
 }
 #banner p strong {
   font-weight: bold;
+}
+#banner .cta-principal, #banner .cta-principal:visited, #banner .cta-principal:active, #banner .cta-principal:link {
+  text-decoration: none;
+  color: black;
 }
 #banner .boton {
   font-weight: bold;
