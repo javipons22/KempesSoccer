@@ -7,7 +7,7 @@
     });
     $(window).resize(function() {
         // This will fire each time the window is resized:
-        if ($(window).width() >= 1024) {
+        if ($(window).width() >= 1124) {
             // if larger or equal
             $('nav').show();
         } else {

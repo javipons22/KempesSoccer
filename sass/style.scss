@@ -223,6 +223,7 @@ nav {
         font-weight: bold;
         font-size: 3.5rem;
         color: black;
+        line-height:45px;
         position: relative;
         letter-spacing: 4.5px;
     }
@@ -233,7 +234,7 @@ nav {
         display: block;
         text-align: right;
         position: relative;
-        top: -0.5em;
+        top: -0.20em;
     }
     p {
         margin: 2.5em 1.8rem;
@@ -536,6 +537,7 @@ footer {
         }
     }
     #banner {
+        padding: 8em;
         >div {
             max-width: 90%;
         }

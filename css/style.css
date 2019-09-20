@@ -412,6 +412,7 @@ nav a {
   font-weight: bold;
   font-size: 3.5rem;
   color: black;
+  line-height: 45px;
   position: relative;
   letter-spacing: 4.5px;
 }
@@ -422,7 +423,7 @@ nav a {
   display: block;
   text-align: right;
   position: relative;
-  top: -0.5em;
+  top: -0.2em;
 }
 #banner p {
   margin: 2.5em 1.8rem;
@@ -709,6 +710,9 @@ footer .copyright a {
       transform: rotate(3500deg);
     }
   }
+  #banner {
+    padding: 8em;
+  }
   #banner > div {
     max-width: 90%;
   }
@@ -835,7 +839,7 @@ footer .copyright a {
     font-size: 19px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1124px) {
   /* ANIMACION EN LAPTOP */
   @keyframes animacionPelota {
     0% {

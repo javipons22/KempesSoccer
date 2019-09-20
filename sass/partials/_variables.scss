@@ -26,7 +26,7 @@ $padding-movil: 3em 1em;
 }
 
 // media queries
-$breakpoints:( 'xs':575px, 'sm':576px, 'lg':768px, 'xl':1024px);
+$breakpoints:( 'xs':575px, 'sm':576px, 'lg':768px, 'xl':1124px);
 @mixin mq($break) {
     $value: map-get($breakpoints, $break);
     $sm: map-get($breakpoints, 'sm');
