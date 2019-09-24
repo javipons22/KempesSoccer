@@ -246,7 +246,7 @@ body {
 }
 
 .container {
-  max-width: 1024px;
+  max-width: 1124px;
   margin: 0 auto;
 }
 
@@ -613,13 +613,17 @@ nav a {
 .contacto h1 {
   font-size: 22px;
   letter-spacing: 0.2em;
-  color: #4B4B4C;
+  color: white;
   display: block;
+  width: 100%;
   text-align: center;
+  margin-bottom: 1.9em;
 }
 .contacto form {
-  margin: 1.9em 2em 0 2em;
+  padding: 1.9em 2em;
   font-size: 22px;
+  border-radius: 0.3em;
+  border: 0.05em solid rgba(255, 255, 255, 0.3);
 }
 .contacto form input,
 .contacto form textarea {
@@ -628,7 +632,7 @@ nav a {
   display: block;
   width: 100%;
   background: #4B4B4C;
-  color: #B7B7B7;
+  color: white;
   border: none;
   border-radius: 0.3em;
   font-size: 0.6em;
@@ -638,22 +642,24 @@ nav a {
 .contacto form input::placeholder,
 .contacto form textarea::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #B7B7B7;
+  color: white;
 }
 .contacto form textarea:-ms-input-placeholder,
 .contacto form input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #B7B7B7;
+  color: white;
 }
 .contacto form textarea::-ms-input-placeholder,
 .contacto form input::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #B7B7B7;
+  color: white;
 }
 .contacto form input[type=submit] {
   background: #F2361C;
   color: #fff;
+  font-weight: bold;
   cursor: pointer;
+  font-size: 0.8em;
 }
 
 /* ======== FIN SECCION CONTACTO ========= */
@@ -671,12 +677,11 @@ footer .info-contacto-footer {
   flex-direction: column;
   flex-wrap: no-wrap;
   margin: 0 auto;
-  padding: 1em 15px;
+  padding: 1em 0;
 }
 footer .info-contacto-footer a {
   font-size: 0.85em;
   font-weight: 500;
-  margin: 0 0.2em 1.5em 0.2em;
   padding: 1em 0;
   display: flex;
   align-items: center;
@@ -685,6 +690,12 @@ footer .info-contacto-footer a {
   width: 70%;
   border-radius: 0.3em;
   border: 0.05em solid rgba(255, 255, 255, 0.3);
+}
+footer .info-contacto-footer a:nth-child(1) {
+  margin: 0 0.2em 1.5em 0;
+}
+footer .info-contacto-footer a:nth-child(2) {
+  margin: 0 0 1.5em 0.2em;
 }
 footer .info-contacto-footer a i {
   margin-bottom: 0.3em;
@@ -706,7 +717,7 @@ footer .copyright {
   font-size: 0.8em;
   border-top: 1.5px solid #4B4B4C;
   padding: 1.5em;
-  margin: 0 1em;
+  margin: 0;
   line-height: 1.5em;
 }
 footer .copyright span {
@@ -718,6 +729,11 @@ footer .copyright a {
 }
 
 /* ======== FIN FOOTER ========= */
+@media (min-width: 576px) {
+  .info-contacto-footer span {
+    font-size: 1.3em;
+  }
+}
 @media (min-width: 768px) {
   /* ANIMACION EN TABLET */
   @keyframes animacionPelota {
@@ -878,10 +894,10 @@ header .container .texto-logo {
     display: none;
   }
   header .container .contenedor-logo {
-    font-size: 25px;
+    font-size: 28px;
   }
   header .container > img {
-    height: 40px;
+    height: 2.8em;
     display: inline-block;
     align-self: center;
   }
@@ -899,7 +915,7 @@ header .container .texto-logo {
     align-items: center;
   }
   #banner .container {
-    max-width: 1024px;
+    max-width: 1124px;
   }
   #banner .caja-banner {
     width: 50%;

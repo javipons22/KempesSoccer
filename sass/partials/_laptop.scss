@@ -18,10 +18,10 @@
                 display: none;
             }
             .contenedor-logo {
-                font-size: 25px; // cambiamos el tamaño del logo para pantallas mas grandes
+                font-size: 28px; // cambiamos el tamaño del logo para pantallas mas grandes
             }
             >img {
-                height: 40px;
+                height: 2.8em;
                 display: inline-block;
                 align-self: center;
                 //transform: translateY(-12%);
@@ -39,7 +39,7 @@
         display: flex;
         align-items: center;
         .container {
-            max-width: 1024px;
+            max-width: 1124px;
         }
         .caja-banner {
             width: 50%;

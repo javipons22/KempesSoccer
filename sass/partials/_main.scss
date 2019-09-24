@@ -27,7 +27,7 @@ body {
 }
 
 .container {
-    max-width: 1024px;
+    max-width: 1124px;
     margin: 0 auto;
 }
 
@@ -403,13 +403,17 @@ nav {
     h1 {
         font-size: 22px;
         letter-spacing: 0.2em;
-        color: $color-input-footer;
+        color: white;
         display: block;
+        width: 100%;
         text-align: center;
+        margin-bottom: 1.9em;
     }
     form {
-        margin: 1.9em 2em 0 2em;
+        padding: 1.9em 2em;
         font-size: 22px;
+        border-radius: 0.3em;
+        border: 0.05em solid rgba(255, 255, 255, 0.3);
         input,
         textarea {
             font-family: 'Montserrat', sans-serif;
@@ -417,7 +421,7 @@ nav {
             display: block;
             width: 100%;
             background: $color-input-footer;
-            color: $color-texto-footer;
+            color: white;
             border: none;
             border-radius: 0.3em;
             font-size: 0.60em;
@@ -427,22 +431,24 @@ nav {
         input::placeholder,
         textarea::placeholder {
             /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: $color-texto-footer;
+            color: white;
         }
         textarea:-ms-input-placeholder,
         input:-ms-input-placeholder {
             /* Internet Explorer 10-11 */
-            color: $color-texto-footer;
+            color: white;
         }
         textarea::-ms-input-placeholder,
         input::-ms-input-placeholder {
             /* Microsoft Edge */
-            color: $color-texto-footer;
+            color: white;
         }
         input[type=submit] {
             background: $rojo-general;
             color: #fff;
+            font-weight: bold;
             cursor: pointer;
+            font-size: 0.8em;
         }
     }
 }
@@ -465,11 +471,10 @@ footer {
         flex-direction: column;
         flex-wrap: no-wrap;
         margin: 0 auto;
-        padding: 1em 15px;
+        padding: 1em 0;
         a {
             font-size: 0.85em;
             font-weight: 500;
-            margin: 0 0.2em 1.5em 0.2em;
             padding: 1em 0;
             display: flex;
             align-items: center;
@@ -478,6 +483,12 @@ footer {
             width: 70%;
             border-radius: 0.3em;
             border: 0.05em solid rgba(255, 255, 255, 0.3);
+            &:nth-child(1) {
+                margin: 0 0.2em 1.5em 0;
+            }
+            &:nth-child(2) {
+                margin: 0 0 1.5em 0.2em;
+            }
             i {
                 margin-bottom: 0.3em;
             }
@@ -504,7 +515,7 @@ footer {
         font-size: 0.8em;
         border-top: 1.5px solid $color-input-footer;
         padding: 1.5em;
-        margin: 0 1em;
+        margin: 0;
         line-height: 1.5em;
         span {
             display: block;
