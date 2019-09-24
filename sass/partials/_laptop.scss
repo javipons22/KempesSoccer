@@ -1,0 +1,142 @@
+@include mq('xl') {
+    /* ANIMACION EN LAPTOP */
+    @keyframes animacionPelota {
+        0% {
+            left: -100;
+        }
+        100% {
+            left: 100%;
+            transform: rotate(4700deg);
+        }
+    }
+    /* FIN ANIMACION EN LAPTOP */
+    header {
+        padding: 15px 0 30px 0;
+        .container {
+            .menu-icon,
+            .texto-logo {
+                display: none;
+            }
+            .contenedor-logo {
+                font-size: 25px; // cambiamos el tamaño del logo para pantallas mas grandes
+            }
+            >img {
+                height: 40px;
+                display: inline-block;
+                align-self: center;
+                //transform: translateY(-12%);
+            }
+        }
+    }
+    .imagenes h1 {
+        font-size: 1.8rem;
+    }
+    #banner {
+        background: url('../img/banner.jpg');
+        background-size: cover;
+        height: 65vh;
+        margin-top: 111px;
+        display: flex;
+        align-items: center;
+        .container {
+            max-width: 1024px;
+        }
+        .caja-banner {
+            width: 50%;
+        }
+        p {
+            font-size: 0.9em;
+        }
+        .titulo {
+            max-width: 100%;
+        }
+    }
+    .info {
+        position: relative;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            >a {
+                width: 30%;
+            }
+            img {
+                height: 300px;
+                margin: 30px 15px;
+            }
+            h2 {
+                font-size: 1.85em;
+            }
+        }
+        >img {
+            display: flex;
+        }
+    }
+    .contacto {
+        h1 {
+            font-size: 1.8rem;
+        }
+    }
+    .show-main-nav {
+        display: inline-block;
+    }
+    nav {
+        z-index: 20;
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        transform: translateY(50%);
+        width: 100%;
+        ul {
+            margin: 0 auto;
+            max-width: 800px;
+            @include boton-titulo;
+            // sobreescribimos el padding del mixin de arriba:
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            &:hover {
+                background: $gradiente-general-opaco;
+                transition: all 1s ease-in-out;
+            }
+            li {
+                padding: 0;
+                margin: 0;
+                font-size: 1rem;
+                display: flex;
+                text-align: center;
+                width: 191px;
+                display: flex;
+                border: none;
+                a {
+                    position: relative;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    width: 100%;
+                    padding: 15px 0;
+                }
+                &:hover {
+                    margin-bottom: -5px;
+                    border-bottom: 5px solid $color-servicio-1;
+                    transition: border-bottom 0.1s ease-in-out;
+                    background: none;
+                }
+                .nav-element::after {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    right: 0;
+                    background: gray;
+                    height: 15px;
+                    width: 1px;
+                }
+            }
+        }
+        a {
+            color: black;
+            font-weight: 700;
+            text-decoration: none;
+        }
+    }
+}
