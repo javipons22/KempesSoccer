@@ -11,6 +11,8 @@
 - Logo y kempes texto mas grande
 -una sola imagen en slider y que pase sola
 - video marca de agua
+
+-modificar info contacto en PDFs cuando este la informacion disponible
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -233,6 +235,7 @@ table {
 - envianos consulta e inputs de color claro
 -una sola imagen en slider y que pase sola
 - video marca de agua
+- ver que ande en todos los navegadores
 */
 /* ======== ESTILOS GENERALES ========= */
 body {
@@ -416,6 +419,9 @@ nav a {
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
   background-size: cover;
   background-position: center;
+}
+#banner > img {
+  display: none;
 }
 #banner > div {
   max-width: 390px;
@@ -905,18 +911,21 @@ header .container .texto-logo {
   }
 
   #banner {
-    background: url("../img/banner.jpg");
+    background: white;
     background-size: cover;
-    height: 65vh;
-    margin-top: 111px;
     display: flex;
     align-items: center;
+    height: 100vh;
+    margin-top: 0;
   }
   #banner .container {
     max-width: 1124px;
+    z-index: 7;
   }
   #banner .caja-banner {
-    width: 50%;
+    width: 60%;
+    background: white;
+    z-index: 7;
   }
   #banner p {
     font-size: 0.9em;
@@ -924,9 +933,34 @@ header .container .texto-logo {
   #banner .titulo {
     max-width: 100%;
   }
+  #banner > img {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    z-index: 5;
+  }
+  #banner > div:first-child {
+    display: block;
+    background: white;
+    position: absolute;
+    left: 10%;
+    top: 0;
+    bottom: 0;
+    height: 150%;
+    width: 50%;
+    border-radius: 0 50% 50% 0;
+    z-index: 6;
+    overflow: hidden;
+  }
 
   .info {
     position: relative;
+    z-index: 7;
   }
   .info .container {
     display: flex;

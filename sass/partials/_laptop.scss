@@ -32,17 +32,20 @@
         font-size: 1.8rem;
     }
     #banner {
-        background: url('../img/banner.jpg');
+        background: white;
         background-size: cover;
-        height: 65vh;
-        margin-top: 111px;
         display: flex;
         align-items: center;
+        height: 100vh;
+        margin-top: 0;
         .container {
             max-width: 1124px;
+            z-index: 7;
         }
         .caja-banner {
-            width: 50%;
+            width: 60%;
+            background: white;
+            z-index: 7;
         }
         p {
             font-size: 0.9em;
@@ -50,9 +53,34 @@
         .titulo {
             max-width: 100%;
         }
+        >img {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 50%;
+            object-fit: cover;
+            z-index: 5;
+        }
+        >div:first-child {
+            display: block;
+            background: white;
+            position: absolute;
+            left: 10%;
+            top: 0;
+            bottom: 0;
+            height: 150%;
+            width: 50%;
+            border-radius: 0 50% 50% 0;
+            z-index: 6;
+            overflow: hidden;
+        }
     }
     .info {
         position: relative;
+        z-index: 7;
         .container {
             display: flex;
             justify-content: space-between;
