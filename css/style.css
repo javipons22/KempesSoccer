@@ -226,13 +226,8 @@ table {
 - terminar bien slideshow imagenes
 - optimizar scss sacando ids y menos nesting (usar BEM)
 - animacion intro
-- comprimir pdf
-- Logo y kempes texto mas grande
-- header mas grande
-- envianos consulta e inputs de color claro
--una sola imagen en slider y que pase sola
-- video marca de agua
 - ver que ande en todos los navegadores
+- links de whatsapp y email
 */
 /* ======== ESTILOS GENERALES ========= */
 body {
@@ -417,7 +412,7 @@ nav a {
   background-size: cover;
   background-position: center;
 }
-#banner > img {
+#banner img {
   display: none;
 }
 #banner > div {
@@ -429,6 +424,9 @@ nav a {
 #banner .titulo img {
   width: 85%;
   display: inline-block;
+}
+#banner video {
+  display: none;
 }
 #banner h1 {
   font-family: kempes, sans-serif;
@@ -471,10 +469,14 @@ nav a {
   border-radius: 0.3em;
   cursor: pointer;
   border: 0.05em solid rgba(100, 100, 100, 0.3);
+  background: #F2361C;
+  color: white;
+  width: 50%;
   margin: 0 1.8rem;
 }
 #banner .boton:hover {
   background: #f4e6a8;
+  color: black;
 }
 
 /* ======== FIN BANNER ========= */
@@ -925,9 +927,17 @@ header .container .texto-logo {
     max-width: 1124px;
     z-index: 7;
   }
+  #banner video {
+    display: inline-block;
+    width: 80%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.8rem;
+  }
   #banner .caja-banner {
     width: 60%;
     z-index: 7;
+    margin-top: 180px;
   }
   #banner p {
     font-size: 0.9em;

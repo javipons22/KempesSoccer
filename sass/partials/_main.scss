@@ -7,13 +7,8 @@
 - terminar bien slideshow imagenes
 - optimizar scss sacando ids y menos nesting (usar BEM)
 - animacion intro
-- comprimir pdf
-- Logo y kempes texto mas grande
-- header mas grande
-- envianos consulta e inputs de color claro
--una sola imagen en slider y que pase sola
-- video marca de agua
 - ver que ande en todos los navegadores
+- links de whatsapp y email
 */
 
 
@@ -212,7 +207,7 @@ nav {
     url('../img/kempes.jpg');
     background-size: cover;
     background-position: center;
-    >img {
+    img {
         display: none;
     }
     >div {
@@ -224,6 +219,9 @@ nav {
     .titulo img {
         width: 85%;
         display: inline-block;
+    }
+    video {
+        display: none;
     }
     h1 {
         font-family: kempes, sans-serif;
@@ -260,9 +258,13 @@ nav {
     }
     .boton {
         @include boton-titulo;
+        background: $rojo-general;
+        color: white;
+        width: 50%;
         margin: 0 1.8rem;
         &:hover {
             background: rgba(244, 230, 168, 1);
+            color: black;
         }
     }
 }

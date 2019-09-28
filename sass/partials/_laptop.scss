@@ -50,9 +50,17 @@
             max-width: 1124px;
             z-index: 7;
         }
+        video {
+            display: inline-block;
+            width: 80%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-left: 1.8rem;
+        }
         .caja-banner {
             width: 60%;
             z-index: 7;
+            margin-top: 180px;
         }
         p {
             font-size: 0.9em;
