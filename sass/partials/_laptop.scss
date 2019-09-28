@@ -28,8 +28,16 @@
             }
         }
     }
-    .imagenes h1 {
-        font-size: 1.8rem;
+    .imagenes {
+        h1 {
+            font-size: 1.8rem;
+        }
+        img:hover {
+            transform: scale(1.8);
+            position: relative;
+            transition: all 0.35s ease-in-out;
+            z-index: 8;
+        }
     }
     #banner {
         background: white;
@@ -44,14 +52,20 @@
         }
         .caja-banner {
             width: 60%;
-            background: white;
             z-index: 7;
         }
         p {
             font-size: 0.9em;
         }
         .titulo {
-            max-width: 100%;
+            max-width: 90%;
+        }
+        h1 {
+            font-size: 4rem;
+            line-height: 0.8;
+        }
+        h2 {
+            font-size: 2rem;
         }
         >img {
             display: block;

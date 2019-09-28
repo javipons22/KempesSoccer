@@ -7,10 +7,7 @@
 - terminar bien slideshow imagenes
 - optimizar scss sacando ids y menos nesting (usar BEM)
 - animacion intro
-- comprimir pdf
-- Logo y kempes texto mas grande
 -una sola imagen en slider y que pase sola
-- video marca de agua
 
 -modificar info contacto en PDFs cuando este la informacion disponible
 */
@@ -433,7 +430,7 @@ nav a {
   width: 85%;
   display: inline-block;
 }
-#banner h1:first-child {
+#banner h1 {
   font-family: kempes, sans-serif;
   font-weight: bold;
   font-size: 3.5rem;
@@ -442,7 +439,7 @@ nav a {
   position: relative;
   letter-spacing: 4.5px;
 }
-#banner h1:last-child {
+#banner h2 {
   font-weight: bold;
   color: #F2361C;
   font-size: 1.8rem;
@@ -909,6 +906,12 @@ header .container .texto-logo {
   .imagenes h1 {
     font-size: 1.8rem;
   }
+  .imagenes img:hover {
+    transform: scale(1.8);
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    z-index: 8;
+  }
 
   #banner {
     background: white;
@@ -924,14 +927,20 @@ header .container .texto-logo {
   }
   #banner .caja-banner {
     width: 60%;
-    background: white;
     z-index: 7;
   }
   #banner p {
     font-size: 0.9em;
   }
   #banner .titulo {
-    max-width: 100%;
+    max-width: 90%;
+  }
+  #banner h1 {
+    font-size: 4rem;
+    line-height: 0.8;
+  }
+  #banner h2 {
+    font-size: 2rem;
   }
   #banner > img {
     display: block;
