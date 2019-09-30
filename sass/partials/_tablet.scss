@@ -86,11 +86,14 @@
             //display: flex;
             justify-content: space-between;
             align-items: center;
+            >div p {
+                font-size: 1em;
+            }
         }
-        &__slide img {
+        &__slide>div {
             width: 48%;
             max-width: 1000px;
-            padding: 0.8em;
+            padding: 0.8em 0.8em 0 0.8em;
             background: $color-blanco-suave;
             object-fit: cover;
             &:first-child {

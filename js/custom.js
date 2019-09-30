@@ -33,6 +33,7 @@ function hideNav() {
 };
 
 
+
 // // Para hacer andar la funcion agregar onclick="expand('info')" en el link del menu
 // function expand(element) {
 //     var viewportHeight = $(window).height();

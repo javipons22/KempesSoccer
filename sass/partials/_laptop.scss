@@ -32,11 +32,14 @@
         h1 {
             font-size: 1.8rem;
         }
-        img:hover {
-            transform: scale(1.8);
+        .carousel__slide>div:hover {
+            transform: scale(1.7);
             position: relative;
             transition: all 0.35s ease-in-out;
             z-index: 8;
+        }
+        >div p {
+            font-size: 1.2em;
         }
     }
     #banner {

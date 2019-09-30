@@ -228,6 +228,7 @@ table {
 - animacion intro
 - ver que ande en todos los navegadores
 - links de whatsapp y email
+- comprimir 15.JPG
 */
 /* ======== ESTILOS GENERALES ========= */
 body {
@@ -288,7 +289,7 @@ header .fondo-header {
   z-index: 9;
 }
 header .pelota-header {
-  height: 90%;
+  height: 88%;
   position: absolute;
   bottom: 0;
   z-index: 8;
@@ -597,11 +598,23 @@ nav a {
   position: relative;
   display: none;
 }
-.carousel__slide img {
+.carousel__slide > div {
+  display: inline-block;
   width: 100%;
   max-width: 400px;
-  padding: 0.8em;
+  padding: 0.8em 0.8em 0 0.8em;
+  margin: 0.5em 0;
   background: #F7F4E6;
+}
+.carousel__slide > div img {
+  width: 100%;
+  display: block;
+}
+.carousel__slide > div p {
+  font-size: 0.8em;
+  display: block;
+  width: 100%;
+  margin: 20px 0;
 }
 .carousel__slide img:first-child {
   margin-bottom: 0.5em;
@@ -828,17 +841,20 @@ footer .copyright a {
     justify-content: space-between;
     align-items: center;
   }
-  .carousel__slide img {
+  .carousel__slide > div p {
+    font-size: 1em;
+  }
+  .carousel__slide > div {
     width: 48%;
     max-width: 1000px;
-    padding: 0.8em;
+    padding: 0.8em 0.8em 0 0.8em;
     background: #F7F4E6;
     object-fit: cover;
   }
-  .carousel__slide img:first-child {
+  .carousel__slide > div:first-child {
     transform: rotate(3deg);
   }
-  .carousel__slide img:last-child {
+  .carousel__slide > div:last-child {
     transform: rotate(-1deg);
   }
   .carousel__slide img:first-child {
@@ -908,11 +924,14 @@ header .container .texto-logo {
   .imagenes h1 {
     font-size: 1.8rem;
   }
-  .imagenes img:hover {
-    transform: scale(1.8);
+  .imagenes .carousel__slide > div:hover {
+    transform: scale(1.7);
     position: relative;
     transition: all 0.35s ease-in-out;
     z-index: 8;
+  }
+  .imagenes > div p {
+    font-size: 1.2em;
   }
 
   #banner {
