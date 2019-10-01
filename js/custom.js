@@ -16,6 +16,7 @@
             var i = 0;
 
         }
+        linkPDFMovil();
     }).resize();
     // var temp = document.getElementById("imagenes-contenedor").children;
     // var cantidadSetImagenes = temp.length;
@@ -31,6 +32,17 @@ function hideNav() {
         return
     }
 };
+
+// Cuando la pantalla es un movil o celular el link debe ser una imagen en pdfmovil.html
+function linkPDFMovil() {
+    if ($(window).width() <= 576) {
+        for (var i = 1; i <= 5; i++) {
+            $(`.info a:nth-child(${i})`).attr("href", `pdfmovil.html#pdf${i+1}`);
+        }
+        $(`.cta-principal`).attr("href", `pdfmovil.html`);
+
+    }
+}
 
 
 

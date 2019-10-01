@@ -25,15 +25,12 @@ const moveToSlide = (track, currentSlide, targetSlide) => {
     jQuery(targetSlide).fadeIn().css("display", "block");
 
     if (jQuery(targetSlide).is(':last-child')) {
-        console.log('last');
         nextButton.classList.add('is-hidden');
         prevButton.classList.remove('is-hidden');
     } else if (jQuery(targetSlide).is(':first-child')) {
-        console.log('first');
         prevButton.classList.add('is-hidden');
         nextButton.classList.remove('is-hidden');
     } else {
-        console.log('middle');
         nextButton.classList.remove('is-hidden');
         prevButton.classList.remove('is-hidden');
     }
