@@ -1,3 +1,4 @@
 {
-    "editor.fontFamily": "Roboto"
+    "editor.fontFamily": " 'Inconsolata', monospace",
+    "editor.fontSize": 13.5
 }
