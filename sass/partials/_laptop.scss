@@ -55,7 +55,7 @@
         }
         video {
             display: inline-block;
-            width: 80%;
+            width: 30em;
             margin-top: 1rem;
             margin-bottom: 1rem;
             margin-left: 1.8rem;
@@ -64,6 +64,7 @@
             width: 60%;
             z-index: 7;
             margin-top: 180px;
+            font-size: 0.8em; // De aca se cambian todos los tamaños
         }
         p {
             font-size: 0.9em;
@@ -72,11 +73,11 @@
             max-width: 90%;
         }
         h1 {
-            font-size: 4rem;
+            font-size: 4em;
             line-height: 0.8;
         }
         h2 {
-            font-size: 2rem;
+            font-size: 2em;
         }
         >img {
             display: block;
@@ -190,6 +191,14 @@
             color: black;
             font-weight: 700;
             text-decoration: none;
+        }
+    }
+}
+
+@include mq('xxl') {
+    #banner {
+        .caja-banner {
+            font-size: 1em;
         }
     }
 }

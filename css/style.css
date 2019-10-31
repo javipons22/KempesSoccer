@@ -960,7 +960,7 @@ header .container .texto-logo {
   }
   #banner video {
     display: inline-block;
-    width: 80%;
+    width: 30em;
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1.8rem;
@@ -969,6 +969,7 @@ header .container .texto-logo {
     width: 60%;
     z-index: 7;
     margin-top: 180px;
+    font-size: 0.8em;
   }
   #banner p {
     font-size: 0.9em;
@@ -977,11 +978,11 @@ header .container .texto-logo {
     max-width: 90%;
   }
   #banner h1 {
-    font-size: 4rem;
+    font-size: 4em;
     line-height: 0.8;
   }
   #banner h2 {
-    font-size: 2rem;
+    font-size: 2em;
   }
   #banner > img {
     display: block;
@@ -1102,6 +1103,11 @@ header .container .texto-logo {
     color: black;
     font-weight: 700;
     text-decoration: none;
+  }
+}
+@media (min-width: 1380px) {
+  #banner .caja-banner {
+    font-size: 1em;
   }
 }
 
