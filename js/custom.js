@@ -21,6 +21,7 @@
     // var temp = document.getElementById("imagenes-contenedor").children;
     // var cantidadSetImagenes = temp.length;
     // console.log(cantidadSetImagenes);
+
 })(jQuery);
 
 // Esconder nav si se hace click en alguno de sus links pero solo si la pantalla es menor a desktop, (se activa desde el a del HTML)
@@ -42,6 +43,19 @@ function linkPDFMovil() {
         $(`.cta-principal`).attr("href", `pdfmovil.html`);
 
     }
+}
+
+function cambiarIdioma(element) {
+    var currentSrc = jQuery(".cambiar-idioma__boton img").attr("src");
+    console.log(currentSrc);
+    if (currentSrc === 'img/ukflag.png') {
+        jQuery(".cambiar-idioma__boton img").attr("src","img/spainflag.png");
+        jQuery(".cambiar-idioma__boton span").text("Ver en Español");
+    } else {
+        jQuery(".cambiar-idioma__boton img").attr("src","img/ukflag.png");
+        jQuery(".cambiar-idioma__boton span").text("View in English");
+    }
+
 }
 
 

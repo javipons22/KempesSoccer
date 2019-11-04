@@ -1,13 +1,10 @@
 /* @TODO (cosas que faltan hacer)
 - ajustar todo a REM y EM 
 - comprimir imagenes que faltan
-- poner logo en esquina de imagenes
 - cambiar link footer (ghipsio) a pagina de facebook a crear
 - controlar que anden todos los links
-- terminar bien slideshow imagenes
 - optimizar scss sacando ids y menos nesting (usar BEM)
-- animacion intro
--una sola imagen en slider y que pase sola
+- animacion introSS
 
 -modificar info contacto en PDFs cuando este la informacion disponible
 */
@@ -354,6 +351,38 @@ header .menu-icon span {
   margin-right: 0.3em;
   cursor: pointer;
 }
+header .cambiar-idioma {
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  padding: 10px 0;
+}
+header .cambiar-idioma__boton {
+  background-image: url("../../img/ukflag.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 10% 10%;
+  background-position: 0 0;
+  font-size: 0.8em;
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+header .cambiar-idioma__boton img {
+  height: 2em;
+  position: inline-block;
+}
+header .cambiar-idioma__boton span {
+  margin: 0 5px;
+}
 
 /* ======= Fin HEADER======= */
 /* ======= NAV ======= */
@@ -409,7 +438,7 @@ nav a {
 /* ======= Fin NAV======= */
 /* ======== BANNER ========= */
 #banner {
-  margin-top: 80px;
+  margin-top: 134px;
   padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
   background-size: cover;
