@@ -45,6 +45,25 @@ function linkPDFMovil() {
     }
 }
 
+var elementos = {
+    nav1 : "nav ul li a:nth-child(1)",
+    nav2 : "nav ul li a:nth-child(2)",
+    nav3 : "nav ul li a:nth-child(3)",
+    nav4 : "nav ul li a:nth-child(4)"
+}
+
+var textos = {};
+
+for (var elemento in elementos) {
+    console.log(jQuery(elementos[elemento]).text());
+    var i = 1;
+    //textos["nav" + i] = jQuery(elementos[elemento]).text();
+    i++;
+
+}
+
+console.log(textos);
+
 function cambiarIdioma(element) {
     var currentSrc = jQuery(".cambiar-idioma__boton img").attr("src");
     console.log(currentSrc);

@@ -6,7 +6,6 @@ pieDeFoto.forEach((element, index) => {
     pieDeFotoArray.push(displayElement);
 });
 
-console.log(pieDeFotoArray);
 
 for (var i = 0; i < pieDeFotoArray.length; i++) {
     if (i === 0) {
@@ -17,11 +16,11 @@ for (var i = 0; i < pieDeFotoArray.length; i++) {
     let displayTemplate =
         `<li class="carousel__slide ${clase}">
                                 <div>
-                                    <img src="img/fotos kempes/${i}.JPG" alt="imagen ${i}">
+                                    <img src="img/fotos kempes/${i}.jpg" alt="imagen ${i}">
                                     <p>${pieDeFotoArray[i]}</p>
                                 </div>
                                 <div>
-                                    <img src="img/fotos kempes/${i+1}.JPG" alt="imagen ${i+1}">
+                                    <img src="img/fotos kempes/${i+1}.jpg" alt="imagen ${i+1}">
                                     <p>${pieDeFotoArray[i + 1]}</p>
                                 </div>
     </li>`;

@@ -134,6 +134,9 @@
         .info-contacto-footer {
             font-size: 1.5em;
             flex-direction: row;
+            a:nth-child(2) {
+                margin:0;
+            }
         }
     }
     header {
