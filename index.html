@@ -22,16 +22,17 @@
     <meta property="og:image" itemprop="image" content="http://kempessoccer.info/img/logo.jpg?fbclid=IwAR2GKI_TPeZtY1odxoAtk7R6ONb5jXQQB5pzpC0vUwlpnmjF79sp_5OGwEo">
     <meta property="og:type" content="website" />
     <!-- FIN VISTA PREVIA FACEBOOK Y WHATSAPP -->
+    <!-- GOOGLE ANALYTICS -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151761544-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151761544-1"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'UA-151761544-1');
-    </script>
-
+        gtag('config', 'UA-151761544-1');
+</script>
+    <!-- FIN GOOGLE ANALYTICS -->
 </head>
 
 <body>
@@ -223,7 +224,7 @@
             <a name="contacto" class="anchor"></a>
             <div class="container">
 
-                <form>
+                <form action="mail.php" method="POST">
                     <h1>Envianos tu consulta !</h1>
                     <input type="text" name="firstname" placeholder="ingresa tu nombre completo">
                     <input type="text" name="pais" placeholder="ingresa tu país">

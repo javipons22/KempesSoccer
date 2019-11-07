@@ -11,18 +11,47 @@ $badHeads = array("Content-Type:",
 "To:",
 "bcc:",
 "cc:");
+
+$value = array();
 //Comprobamos que entre los datos no se encuentre alguna de
-//las cadenas del array. Si se encuentra alguna cadena se
+//las cadenas del array. Si     se encuentra alguna cadena se
 //dirige a una página de Forbidden
-foreach($badHeads as $valor){
-if(strpos(strtolower($campo), strtolower($valor)) !== false){
-header( "HTTP/1.0 403 Forbidden");
-exit;
+    foreach($badHeads as $valor){
+        if(strpos(strtolower($campo), strtolower($valor)) !== false){
+            $value[] = 1;
+            
+        } else {
+            $value[] = 0;
+        }
+    }
+if (array_search(1,$value) === false) {
+    return true;
+} else {
+    return false;
 }
 }
+
+// //Ejemplo de llamadas a la funcion
+$nombre = $_POST['firstname'];
+$pais = $_POST['pais'];
+$email = $_POST['email'];
+$mensaje = $_POST['mensaje'];
+
+$nombre1 = ValidarDatos($_POST['firstname']);
+$pais1 = ValidarDatos($_POST['pais']);
+$email1 = ValidarDatos($_POST['email']);
+$mensaje1 = ValidarDatos($_POST['mensaje']);
+
+$nombre2 = filter_var( $nombre, FILTER_SANITIZE_STRING);
+$email2 = filter_var( $email, FILTER_VALIDATE_EMAIL);
+$pais2 = filter_var( $pais, FILTER_SANITIZE_STRING);
+$mensaje2 = filter_var( $mensaje, FILTER_SANITIZE_STRING);
+
+if ($nombre1 === false || $pais1 === false || $email1 === false || $mensaje1 === false) {
+    echo "el mensaje contiene headers";
+} else {
+    echo $mensaje2;
 }
-//Ejemplo de llamadas a la funcion
-ValidarDatos($_POST['email']);
-ValidarDatos($_POST['asunto']);
-ValidarDatos($_POST['mensaje']);
+
+
 ?>
