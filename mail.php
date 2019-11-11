@@ -37,21 +37,62 @@ $pais = $_POST['pais'];
 $email = $_POST['email'];
 $mensaje = $_POST['mensaje'];
 
-$nombre1 = ValidarDatos($_POST['firstname']);
-$pais1 = ValidarDatos($_POST['pais']);
-$email1 = ValidarDatos($_POST['email']);
-$mensaje1 = ValidarDatos($_POST['mensaje']);
+$errorMSG = "";
+
+// TELEFONO
+if (empty($nombre) || empty($pais) || empty($email) || empty($mensaje)) {
+    $errorMSG = "1";
+}
+
+$nombre1 = ValidarDatos($nombre);
+$pais1 = ValidarDatos($pais);
+$email1 = ValidarDatos($email);
+$mensaje1 = ValidarDatos($mensaje);
 
 $nombre2 = filter_var( $nombre, FILTER_SANITIZE_STRING);
 $email2 = filter_var( $email, FILTER_VALIDATE_EMAIL);
 $pais2 = filter_var( $pais, FILTER_SANITIZE_STRING);
 $mensaje2 = filter_var( $mensaje, FILTER_SANITIZE_STRING);
 
+// ---------------------
+// INFORMACION DEL EMAIL
+// ---------------------
+$sender = 'hola@kempessoccer.info';
+$EmailTo = "hola@kempessoccer.info";
+$Subject = "Nuevo mensaje de consulta de la web";
+
+// Cuerpo del email
+$Body = "";
+$Body .= "<strong>Nombre: </strong> " . $nombre2 . "<br>";
+$Body .=  "<strong>Email: </strong> " . $email2 . "<br>";
+$Body .= "<strong>Pais: </strong> " . $pais . "<br>";
+$Body .= "<strong>" . $nombre2 . " escribió el siguiente mensaje:</strong><br> " . $mensaje2;
+
+// Estas son cabeceras que se usan para evitar que el correo llegue a SPAM:
+$headers = 'From:' . $sender. "\n";
+// $headers = "X-Mailer: PHP5\n";
+// $headers .= 'MIME-Version: 1.0' . "\n";
+$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+
+
+
 if ($nombre1 === false || $pais1 === false || $email1 === false || $mensaje1 === false) {
-    echo "el mensaje contiene headers";
+    $errorMSG = "2";
 } else {
-    echo $mensaje2;
+    // Si se paso la MEDIDA DE SEGURIDAD 1 enviar email
+    $success = mail($EmailTo, $Subject, $Body, $headers);
+    // $response = array();
+
+    if ($success && $errorMSG == "") {
+        header("Location: http://www.kempessoccer.info/?error=false");
+        // $response['status'] = 'success';
+        // $response['message'] = 'Tu mensaje fue enviado con exito!!';
+    } else {
+        header("Location: http://www.kempessoccer.info/?error=" . $errorMSG);
+    }
 }
 
-
+// 1 - Completa todos los campos
+// 2 - el mensaje contiene headers
 ?>
