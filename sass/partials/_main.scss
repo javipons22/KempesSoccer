@@ -379,7 +379,7 @@ nav {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    h1 {
+    .titulo-container-imagenes {
         @include boton-titulo;
         font-size: 22px;
         padding: 0.7em 1.5em;
@@ -573,7 +573,7 @@ footer {
         padding: 1.5em;
         margin: 0;
         line-height: 1.5em;
-        span {
+        span:first-child {
             display: block;
         }
         a {

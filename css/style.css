@@ -575,7 +575,7 @@ nav a {
   background-repeat: no-repeat;
   background-position: center;
 }
-.imagenes h1 {
+.imagenes .titulo-container-imagenes {
   font-weight: bold;
   padding: 1em 1.5em;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
@@ -587,7 +587,7 @@ nav a {
   padding: 0.7em 1.5em;
   cursor: default;
 }
-.imagenes h1 span {
+.imagenes .titulo-container-imagenes span {
   text-align: right;
   font-size: 0.7em;
   font-weight: 400;
@@ -769,7 +769,7 @@ footer .copyright {
   margin: 0;
   line-height: 1.5em;
 }
-footer .copyright span {
+footer .copyright span:first-child {
   display: block;
 }
 footer .copyright a {

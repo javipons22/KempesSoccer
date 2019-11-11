@@ -46,23 +46,58 @@ function linkPDFMovil() {
 }
 
 var elementos = {
-    nav1 : "nav ul li a:nth-child(1)",
-    nav2 : "nav ul li a:nth-child(2)",
-    nav3 : "nav ul li a:nth-child(3)",
-    nav4 : "nav ul li a:nth-child(4)"
+    nav1 : "nav ul li:nth-child(1) a",
+    nav2 : "nav ul li:nth-child(2) a",
+    nav3 : "nav ul li:nth-child(3) a",
+    nav4 : "nav ul li:nth-child(4) a",
+    titulo1 : ".titulo h2",
+    titulo2 : ".titulo-container-imagenes h1",
+    titulo3 : ".titulo-container-imagenes span",
+    titulo4 : "form h1",
+    parrafo1 : ".caja-banner p",
+    boton1 : ".cta-principal .boton",
+    boton2 : ".botones-pdf a:nth-child(1) h2",
+    boton3 : ".botones-pdf a:nth-child(2) h2",
+    boton4 : ".botones-pdf a:nth-child(3) h2",
+    input1 : "form input[type=submit]",
+    input2 : "form input:nth-child(2)",
+    input3 : "form input:nth-child(3)",
+    input4 : "form input:nth-child(4)",
+    input5 : "form textarea",
+    footer1 : ".copyright span:nth-child(1)",
+    footer2 : ".copyright span:nth-child(2)",
 }
 
-var textos = {};
+var textosEspañol = {};
 
+// ------------------------------
+// OBTENEDOR DE TEXTOS EN ESPAÑOL
+// ------------------------------
+
+// Iteramos en el objeto elementos
 for (var elemento in elementos) {
-    console.log(jQuery(elementos[elemento]).text());
-    var i = 1;
-    //textos["nav" + i] = jQuery(elementos[elemento]).text();
-    i++;
+    // Obtenemos el selector del elemento deseado para usarlo con jQuery
+    var temp = elementos[elemento];
 
+    // Si el elemento es un input o un text area obtener placeholder y value respectivamente
+    if(jQuery(temp).selector.indexOf("input") !== -1 || jQuery(temp).selector.indexOf("textarea") !== -1){
+        // verificamos que el atributo type no de error cuando es "undefined" (en el caso del textarea)
+        try{
+            // Si es submit obtenemos value y si no es submit el placeholder
+            if(jQuery(temp).attr('type').indexOf("submit") !== -1){
+                textosEspañol[elemento] = jQuery(temp).attr('value');
+            } else {
+                textosEspañol[elemento] = jQuery(temp).attr('placeholder');
+            }
+        } catch { // En este caso es el textarea que da undefined ya que no tiene "type" 
+            textosEspañol[elemento] = jQuery(temp).attr('placeholder');
+        }
+    } else { // Si el elemento no es input ni text area obtenemos el texto del elemento (todos los elementos que no sean input ni textarea)
+        textosEspañol[elemento] = jQuery(temp).text();
+    }
 }
 
-console.log(textos);
+console.log(textosEspañol);
 
 function cambiarIdioma(element) {
     var currentSrc = jQuery(".cambiar-idioma__boton img").attr("src");
