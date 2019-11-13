@@ -363,7 +363,6 @@ header .cambiar-idioma {
   border-radius: none;
 }
 header .cambiar-idioma__boton {
-  background-image: url("../../img/ukflag.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 10% 10%;
