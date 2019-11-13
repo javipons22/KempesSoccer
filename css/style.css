@@ -360,7 +360,7 @@ header .cambiar-idioma {
   right: 0;
   justify-content: center;
   overflow: hidden;
-  border-radius: 0 0 0 35px;
+  border-radius: none;
 }
 header .cambiar-idioma__boton {
   background-image: url("../../img/ukflag.png");
@@ -440,7 +440,7 @@ nav a {
 /* ======= Fin NAV======= */
 /* ======== BANNER ========= */
 #banner {
-  margin-top: 80px;
+  margin-top: 134px;
   padding: 3em 1em;
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
   background-size: cover;
@@ -808,6 +808,7 @@ footer .copyright a {
   }
   #banner {
     padding: 8em;
+    margin-top: 150px;
   }
   #banner > div {
     max-width: 90%;
@@ -977,6 +978,7 @@ header .container .texto-logo {
     left: auto;
     width: 15%;
     background: white;
+    border-radius: 0 0 0 35px;
   }
 
   .imagenes h1 {

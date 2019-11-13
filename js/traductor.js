@@ -108,10 +108,26 @@ function cambiarIdioma(boton) {
     if (currentSrc === 'img/ukflag.png') {
         jQuery(".cambiar-idioma__boton img").attr("src","img/spainflag.png");
         jQuery(".cambiar-idioma__boton span").text("Ver en Español");
+        if ($(window).width() <= 576) {
+            for (var i = 1; i <= 5; i++) {
+                $(`.info a:nth-child(${i})`).attr("href", `pdfmovilingles.html#pdf${i+1}`);
+            }
+            $(`.cta-principal`).attr("href", `pdfmovilingles.html`);
+        } else {
+            jQuery(".cta-principal").attr("href","kempessocceringles.pdf");
+        }
         cambiarTextos(elementos,textosIngles);
     } else {
         jQuery(".cambiar-idioma__boton img").attr("src","img/ukflag.png");
         jQuery(".cambiar-idioma__boton span").text("View in English");
+        if ($(window).width() <= 576) {
+            for (var i = 1; i <= 5; i++) {
+                $(`.info a:nth-child(${i})`).attr("href", `pdfmovil.html#pdf${i+1}`);
+            }
+            $(`.cta-principal`).attr("href", `pdfmovil.html`);
+        } else {
+            jQuery(".cta-principal").attr("href","kempessoccer.pdf");
+        }
         cambiarTextos(elementos,textosEspañol);
     }
 

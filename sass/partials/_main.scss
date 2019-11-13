@@ -155,7 +155,7 @@ header {
         right:0;
         justify-content: center;
         overflow:hidden;
-        border-radius: 0 0 0 35px;
+        border-radius:none;
         &__boton {
             background-image: url('../../img/ukflag.png');
             background-repeat: no-repeat;
@@ -240,7 +240,7 @@ nav {
 /* ======== BANNER ========= */
 
 #banner {
-    margin-top: 80px;
+    margin-top: 134px;
     padding: $padding-movil;
     background: linear-gradient( rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), /* bottom, image */
     url('../img/kempes.jpg');
