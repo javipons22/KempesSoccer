@@ -145,6 +145,7 @@ header {
         }
     }
     /* ====== FIN BOTON MENU ======= */
+
     .cambiar-idioma {
         background:rgba(255,255,255,0.8);
         display:flex;
@@ -153,7 +154,8 @@ header {
         left:0;
         right:0;
         justify-content: center;
-        padding:10px 0;
+        overflow:hidden;
+        border-radius: 0 0 0 35px;
         &__boton {
             background-image: url('../../img/ukflag.png');
             background-repeat: no-repeat;
@@ -161,6 +163,7 @@ header {
             background-size: 10% 10%;
             background-position:0 0;
             font-size:0.8em;
+            margin:10px 0;
             padding:3px 5px 3px 5px;
             border:1px solid #aaa;
             border-radius:5px;

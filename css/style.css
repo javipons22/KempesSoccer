@@ -359,7 +359,8 @@ header .cambiar-idioma {
   left: 0;
   right: 0;
   justify-content: center;
-  padding: 10px 0;
+  overflow: hidden;
+  border-radius: 0 0 0 35px;
 }
 header .cambiar-idioma__boton {
   background-image: url("../../img/ukflag.png");
@@ -368,6 +369,7 @@ header .cambiar-idioma__boton {
   background-size: 10% 10%;
   background-position: 0 0;
   font-size: 0.8em;
+  margin: 10px 0;
   padding: 3px 5px 3px 5px;
   border: 1px solid #aaa;
   border-radius: 5px;
@@ -971,6 +973,10 @@ header .container .texto-logo {
   }
   header .cambiar-idioma {
     top: 129px;
+    right: 0;
+    left: auto;
+    width: 15%;
+    background: white;
   }
 
   .imagenes h1 {
