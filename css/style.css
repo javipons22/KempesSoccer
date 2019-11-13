@@ -938,6 +938,9 @@ footer .copyright a {
   header .contenedor-logo {
     font-size: 19px;
   }
+  header .cambiar-idioma {
+    top: 96px;
+  }
 }
 @media (min-width: 1124px) {
   /* ANIMACION EN LAPTOP */
@@ -965,6 +968,9 @@ header .container .texto-logo {
     height: 2.8em;
     display: inline-block;
     align-self: center;
+  }
+  header .cambiar-idioma {
+    top: 129px;
   }
 
   .imagenes h1 {
