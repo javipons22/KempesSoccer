@@ -113,8 +113,12 @@ function cambiarIdioma(boton) {
                 $(`.info a:nth-child(${i})`).attr("href", `pdfmovilingles.html#pdf${i+1}`);
             }
             $(`.cta-principal`).attr("href", `pdfmovilingles.html`);
+            
         } else {
             jQuery(".cta-principal").attr("href","kempessocceringles.pdf");
+            for (var i = 1; i <= 5; i++) {
+                $(`.info a:nth-child(${i})`).attr("href",`kempessocceringles.pdf#page=${i+1}`);
+            }
         }
         cambiarTextos(elementos,textosIngles);
     } else {
@@ -127,6 +131,9 @@ function cambiarIdioma(boton) {
             $(`.cta-principal`).attr("href", `pdfmovil.html`);
         } else {
             jQuery(".cta-principal").attr("href","kempessoccer.pdf");
+            for (var i = 1; i <= 5; i++) {
+                $(`.info a:nth-child(${i})`).attr("href",`kempessoccer.pdf#page=${i+1}`);
+            }
         }
         cambiarTextos(elementos,textosEspañol);
     }

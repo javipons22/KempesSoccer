@@ -1,3 +1,4 @@
+
 (function($) {
 
 
@@ -16,7 +17,6 @@
             var i = 0;
 
         }
-        linkPDFMovil();
     }).resize();
     // var temp = document.getElementById("imagenes-contenedor").children;
     // var cantidadSetImagenes = temp.length;
@@ -47,3 +47,4 @@ function linkPDFMovil() {
 
 
 
+linkPDFMovil();
