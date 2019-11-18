@@ -104,6 +104,7 @@ function cambiarTextos(objeto, idioma){
 obtenerTextos(elementos);
 
 function cambiarIdioma(boton) {
+    console.log(boton);
     var currentSrc = jQuery(".cambiar-idioma__boton img").attr("src");
     if (currentSrc === 'img/ukflag.png') {
         jQuery(".cambiar-idioma__boton img").attr("src","img/spainflag.png");
