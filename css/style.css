@@ -230,6 +230,10 @@ para preguntarle a juan:
 - emails para el formulario
 */
 /* ======== ESTILOS GENERALES ========= */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
 }

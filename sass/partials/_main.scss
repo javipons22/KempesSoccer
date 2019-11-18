@@ -17,6 +17,10 @@ para preguntarle a juan:
 
 /* ======== ESTILOS GENERALES ========= */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }
