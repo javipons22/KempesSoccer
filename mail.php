@@ -65,7 +65,7 @@ $Subject = "Nuevo mensaje de consulta de la web";
 $Body = "";
 $Body .= "<strong>Nombre: </strong> " . $nombre2 . "<br>";
 $Body .=  "<strong>Email: </strong> " . $email2 . "<br>";
-$Body .= "<strong>Pais: </strong> " . $pais . "<br>";
+$Body .= "<strong>Pais: </strong> " . $pais2 . "<br>";
 $Body .= "<strong>" . $nombre2 . " escribió el siguiente mensaje:</strong><br> " . $mensaje2;
 
 // Estas son cabeceras que se usan para evitar que el correo llegue a SPAM:
@@ -78,7 +78,7 @@ $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
 
 if ($nombre1 === false || $pais1 === false || $email1 === false || $mensaje1 === false) {
-    $errorMSG = "2";
+    header("Location: http://www.kempessoccer.info/?error=true");
 } else {
     // Si se paso la MEDIDA DE SEGURIDAD 1 enviar email
     $success = mail($EmailTo, $Subject, $Body, $headers);
