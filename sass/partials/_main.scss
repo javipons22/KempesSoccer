@@ -189,6 +189,57 @@ header {
 
 /* ======= Fin HEADER======= */
 
+/* ======= EMAIL MENSAJE======= */
+.email {
+    position: fixed;
+    left:0;
+    right: 0;
+    top:0;
+    bottom:0;
+    background:rgba(0,0,0,0.5);
+    z-index:100;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+    display:none;
+    &__contenedor {
+        background: rgba(35,35,35,0.95);
+        padding:75px 25px;
+        margin: 20px;
+        position:relative;
+        display:flex;
+        flex-direction: column;
+        &--enviado {
+            display:none;
+        }
+        &--no-enviado {
+            display:none;
+        }
+    }
+    &__boton-cerrar {
+        position:absolute;
+        background:red;
+        top:0;
+        right:0;
+        color:white;
+        padding:15px;
+        cursor:pointer;
+    }
+    &__mensaje {
+        flex-basis:100%;
+    }
+    &__boton-aceptar {
+        padding: 10px 15px;
+        margin: 15px 0 0 0;
+        background: #58C750;
+        align-self:center;
+        cursor:pointer;
+        font-weight:bold;
+    }
+}
+/* ======= Fin EMAIL MENSAJE======= */
+
 
 /* ======= NAV ======= */
 

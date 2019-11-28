@@ -390,6 +390,57 @@ header .cambiar-idioma__boton span {
 }
 
 /* ======= Fin HEADER======= */
+/* ======= EMAIL MENSAJE======= */
+.email {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  display: none;
+}
+.email__contenedor {
+  background: rgba(35, 35, 35, 0.95);
+  padding: 75px 25px;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.email__contenedor--enviado {
+  display: none;
+}
+.email__contenedor--no-enviado {
+  display: none;
+}
+.email__boton-cerrar {
+  position: absolute;
+  background: red;
+  top: 0;
+  right: 0;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+}
+.email__mensaje {
+  flex-basis: 100%;
+}
+.email__boton-aceptar {
+  padding: 10px 15px;
+  margin: 15px 0 0 0;
+  background: #58C750;
+  align-self: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ======= Fin EMAIL MENSAJE======= */
 /* ======= NAV ======= */
 nav {
   z-index: 20;
@@ -818,6 +869,11 @@ footer .copyright a {
   }
   #banner .titulo {
     max-width: 512px;
+  }
+
+  .email__contenedor {
+    padding: 75px;
+    margin: 0;
   }
 
   /* FIN ANIMACION EN TABLET */

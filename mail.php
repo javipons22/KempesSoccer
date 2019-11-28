@@ -89,7 +89,7 @@ if ($nombre1 === false || $pais1 === false || $email1 === false || $mensaje1 ===
         // $response['status'] = 'success';
         // $response['message'] = 'Tu mensaje fue enviado con exito!!';
     } else {
-        header("Location: http://www.kempessoccer.info/?error=" . $errorMSG);
+        header("Location: http://www.kempessoccer.info/?error=true");
     }
 }
 
