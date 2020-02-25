@@ -38,7 +38,7 @@ var textosIngles = {
     nav2: "TOUR INFO",
     nav3: "IMAGES",
     nav4: "CONTACT",
-    parrafo1: "<strong>KEMPESSOCCER</strong> offers you a unique service for professional clubs ,organizing a <strong>tour around Argentina</strong> including tournaments against Argentinian teams, measuring therefore their soccer abilities. Under the general management of <strong>Mario Alberto Kempes</strong>.",
+    parrafo1: "<strong>KEMPESSOCCER</strong> offers you a unique service for professional clubs ,organizing a <strong>tour around Argentina</strong> including tournaments against Argentinian teams, measuring therefore their soccer abilities. Represented by <strong>Mario Alberto Kempes</strong>.",
     titulo1 : "SPORT TOUR",
     titulo2: "VISITORS",
     titulo3: "SUCCESS CASES",

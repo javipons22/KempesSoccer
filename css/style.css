@@ -46,7 +46,6 @@ s,
 samp,
 small,
 strike,
-strong,
 sub,
 sup,
 tt,
@@ -534,6 +533,15 @@ nav a {
   position: relative;
   top: -0.2em;
 }
+#banner h3 {
+  font-weight: bold;
+  color: #2bcaff;
+  font-size: 1.8rem;
+  display: block;
+  text-align: right;
+  position: relative;
+  top: -0.2em;
+}
 #banner p {
   margin: 2.5em 1.8rem;
   font-size: 0.8em;
@@ -763,6 +771,13 @@ nav a {
   font-weight: bold;
   cursor: pointer;
   font-size: 0.8em;
+}
+
+.mas-contacto {
+  color: white;
+  font-size: 0.5em;
+  margin-bottom: 30px;
+  line-height: 1.5em;
 }
 
 /* ======== FIN SECCION CONTACTO ========= */
@@ -1002,6 +1017,12 @@ footer .copyright a {
   }
   header .cambiar-idioma {
     top: 96px;
+  }
+
+  .mas-contacto {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-size: 0.65em;
   }
 }
 @media (min-width: 1124px) {
