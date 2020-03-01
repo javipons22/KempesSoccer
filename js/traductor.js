@@ -110,9 +110,9 @@ function cambiarIdioma(boton) {
         jQuery(".cambiar-idioma__boton span").text("Ver en Español");
         if ($(window).width() <= 576) {
             for (var i = 1; i <= 5; i++) {
-                $(`.info a:nth-child(${i})`).attr("href", `pdfmovilingles.html#pdf${i+1}`);
+                $(`.info a:nth-child(${i})`).attr("href", `pdfmovilingles2.html#pdf${i+1}`);
             }
-            $(`.cta-principal`).attr("href", `pdfmovilingles.html`);
+            $(`.cta-principal`).attr("href", `pdfmovilingles2.html`);
             
         } else {
             jQuery(".cta-principal").attr("href","kempessocceringles.pdf");
@@ -126,9 +126,9 @@ function cambiarIdioma(boton) {
         jQuery(".cambiar-idioma__boton span").text("View in English");
         if ($(window).width() <= 576) {
             for (var i = 1; i <= 5; i++) {
-                $(`.info a:nth-child(${i})`).attr("href", `pdfmovil.html#pdf${i+1}`);
+                $(`.info a:nth-child(${i})`).attr("href", `pdfmovil2.html#pdf${i+1}`);
             }
-            $(`.cta-principal`).attr("href", `pdfmovil.html`);
+            $(`.cta-principal`).attr("href", `pdfmovil2.html`);
         } else {
             jQuery(".cta-principal").attr("href","kempessoccer.pdf");
             for (var i = 1; i <= 5; i++) {

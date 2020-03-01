@@ -38,9 +38,9 @@ function hideNav() {
 function linkPDFMovil() {
     if ($(window).width() <= 576) {
         for (var i = 1; i <= 5; i++) {
-            $(`.info a:nth-child(${i})`).attr("href", `pdfmovil.html#pdf${i+1}`);
+            $(`.info a:nth-child(${i})`).attr("href", `pdfmovil2.html#pdf${i+1}`);
         }
-        $(`.cta-principal`).attr("href", `pdfmovil.html`);
+        $(`.cta-principal`).attr("href", `pdfmovil2.html`);
 
     }
 }
