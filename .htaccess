@@ -1,7 +1,15 @@
 AddHandler x-httpd-php7-1 .php
 
-Header set Cache-Control "public"
+# Header set Cache-Control "public"
 # Header set Expires "Sun, 01 Mar 2020 22:55:33 GMT"
 # Header set Last-Modified "Tue, 03 Mar 2020 00:12:33 GMT"
 
-Header set Cache-Control "max-age=604800"
+# Header set Cache-Control "max-age=604800"
+
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "private, no-cache"
+</FilesMatch>
+
+<FilesMatch "\.(gif|jpe?g|png|css|js)$">
+    Header set Cache-Control "max-age=26300000"
+</FilesMatch>

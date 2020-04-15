@@ -1,0 +1,1242 @@
+/* @TODO (cosas que faltan hacer)
+- ajustar todo a REM y EM 
+- comprimir imagenes que faltan
+- cambiar link footer (ghipsio) a pagina de facebook a crear
+- controlar que anden todos los links
+- optimizar scss sacando ids y menos nesting (usar BEM)
+- animacion introSS
+
+-modificar info contacto en PDFs cuando este la informacion disponible
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@keyframes animacionPelota {
+  0% {
+    left: -100;
+  }
+  100% {
+    left: 100%;
+    transform: rotate(2000deg);
+  }
+}
+@font-face {
+  font-family: kempes;
+  src: url(../../fonts/kempes.ttf);
+}
+/*
+-moz-linear-gradient(top, #ffffff 0%, #f4e6a8 100%),
+-webkit-linear-gradient(top, #ffffff 0%, #f4e6a8 100%);
+*/
+.menu-wrapper {
+  width: 20px;
+  height: 11px;
+  cursor: pointer;
+}
+
+.hamburger-menu,
+.hamburger-menu:after,
+.hamburger-menu:before {
+  width: 15px;
+  height: 2px;
+}
+
+.hamburger-menu {
+  position: relative;
+  transform: translateY(5px);
+  background: #222;
+  transition: all 0ms 300ms;
+}
+
+.hamburger-menu.animate {
+  background: rgba(255, 255, 255, 0);
+}
+
+.hamburger-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  background: #222;
+  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  background: #222;
+  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:after {
+  top: 0;
+  transform: rotate(45deg);
+  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:before {
+  bottom: 0;
+  transform: rotate(-45deg);
+  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* @TODO (cosas que faltan hacer)
+- ajustar todo a REM y EM 
+- cambiar link footer (ghipsio) a pagina de facebook a crear
+- controlar que anden todos los links
+- optimizar scss sacando ids y menos nesting (usar BEM)
+- animacion intro
+- ver que ande en todos los navegadores
+- links de whatsapp y email
+- comprimir 15.JPG
+
+para preguntarle a juan:
+-links del footer
+-links de los pdf
+- emails para el formulario
+*/
+/* ======== ESTILOS GENERALES ========= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1124px;
+  margin: 0 auto;
+}
+
+.anchor {
+  display: inline-block;
+  position: absolute;
+  height: 111px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: -111px;
+  z-index: -1;
+}
+
+.info,
+.contacto,
+.imagenes {
+  position: relative;
+}
+
+/* ======== FIN STILOS GENERALES ========= */
+/* ======== HEADER ========= */
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  padding: 10px 15px;
+  background: #F7F4E6;
+  -webkit-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+  -moz-box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+  box-shadow: 0px -4px 17px 9px rgba(31, 31, 31, 0.76);
+  /* ====== LOGO ======= */
+  /* ====== FIN LOGO ======= */
+  /* ====== BOTON MENU ======= */
+  /* ====== FIN BOTON MENU ======= */
+}
+header .fondo-header {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  z-index: 9;
+}
+header .pelota-header {
+  height: 88%;
+  position: absolute;
+  bottom: 0;
+  z-index: 8;
+  left: -100%;
+  animation: animacionPelota infinite;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .container > img {
+  display: none;
+}
+header .contenedor-logo {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+header .logo {
+  height: 3em;
+  position: relative;
+}
+header .logo img {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+header .logo img:nth-child(1) {
+  position: absolute;
+  z-index: 0;
+}
+header .logo img:nth-child(2) {
+  position: absolute;
+  z-index: 10;
+  left: 1.8em;
+}
+header .texto-logo img {
+  height: 0.5em;
+}
+header .menu-icon {
+  font-size: 0.8rem;
+  font-weight: bold;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  color: #222;
+  display: flex;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+  padding: 1em;
+  opacity: 0.9;
+  border-radius: 0.3em;
+  z-index: 11;
+  cursor: pointer;
+}
+header .menu-icon span {
+  margin-right: 0.3em;
+  cursor: pointer;
+}
+header .cambiar-idioma {
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: none;
+}
+header .cambiar-idioma__boton {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 10% 10%;
+  background-position: 0 0;
+  font-size: 0.8em;
+  margin: 10px 0;
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+header .cambiar-idioma__boton img {
+  height: 2em;
+  position: inline-block;
+}
+header .cambiar-idioma__boton span {
+  margin: 0 5px;
+}
+
+/* ======= Fin HEADER======= */
+/* ======= EMAIL MENSAJE======= */
+.email {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  display: none;
+}
+.email__contenedor {
+  background: rgba(35, 35, 35, 0.95);
+  padding: 75px 25px;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.email__contenedor--enviado {
+  display: none;
+}
+.email__contenedor--no-enviado {
+  display: none;
+}
+.email__boton-cerrar {
+  position: absolute;
+  background: red;
+  top: 0;
+  right: 0;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+}
+.email__mensaje {
+  flex-basis: 100%;
+}
+.email__boton-aceptar {
+  padding: 10px 15px;
+  margin: 15px 0 0 0;
+  background: #58C750;
+  align-self: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ======= Fin EMAIL MENSAJE======= */
+/* ======= NAV ======= */
+nav {
+  z-index: 20;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(105%);
+  width: 95%;
+}
+nav ul {
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  padding: 1em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+nav ul li {
+  font-size: 1rem;
+  padding: 0.5em;
+  margin: 0.3em;
+  display: flex;
+  text-align: left;
+  display: flex;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  border-radius: 0.3em;
+}
+nav ul li a {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0;
+}
+nav ul li:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+nav a {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ======= Fin NAV======= */
+/* ======== BANNER ========= */
+#banner {
+  margin-top: 134px;
+  padding: 3em 1em;
+  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url("../img/kempes.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#banner img {
+  display: none;
+}
+#banner > div {
+  max-width: 390px;
+}
+#banner .titulo {
+  margin-bottom: 2.5em;
+}
+#banner .titulo img {
+  width: 85%;
+  display: inline-block;
+}
+#banner video {
+  display: none;
+}
+#banner h1 {
+  font-family: kempes, sans-serif;
+  font-weight: bold;
+  font-size: 3.5rem;
+  color: black;
+  line-height: 45px;
+  position: relative;
+  letter-spacing: 4.5px;
+}
+#banner h2 {
+  font-weight: bold;
+  color: #F2361C;
+  font-size: 1.8rem;
+  display: block;
+  text-align: right;
+  position: relative;
+  top: -0.2em;
+}
+#banner h3 {
+  font-weight: bold;
+  color: yellow;
+  font-size: 1.8rem;
+  display: block;
+  text-align: right;
+  position: relative;
+  top: -0.2em;
+}
+#banner p {
+  margin: 2.5em 1.8rem;
+  font-size: 0.8em;
+  line-height: 1.7;
+}
+#banner p strong {
+  font-weight: bold;
+}
+#banner .cta-principal,
+#banner .cta-principal:visited,
+#banner .cta-principal:active,
+#banner .cta-principal:link {
+  text-decoration: none;
+  color: black;
+}
+#banner .boton {
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  background: #F2361C;
+  color: white;
+  width: 50%;
+  margin: 0 1.8rem;
+}
+#banner .boton:hover {
+  background: #f4e6a8;
+  color: black;
+}
+
+/* ======== FIN BANNER ========= */
+/* ======== SECCION INFO ========= */
+.info {
+  background-color: #3A3A3A;
+  padding: 3em 1em;
+  position: relative;
+  overflow: hidden;
+}
+.info .container > a {
+  background: #fff;
+  height: 70px;
+  margin: 20px 0;
+  border-radius: 0.3em;
+  display: flex;
+  text-decoration: none;
+  color: #3A3A3A;
+  z-index: 9;
+}
+.info .container > a:nth-child(1) {
+  border-left: 10px solid #FF3000;
+}
+.info .container > a:nth-child(2) {
+  border-left: 10px solid #FFEA00;
+}
+.info .container > a:nth-child(3) {
+  border-left: 10px solid #7DFF00;
+}
+.info .container img {
+  height: 92%;
+  margin: 3px 5px;
+}
+.info .container h2 {
+  display: flex;
+  font-weight: bold;
+  color: #3A3A3A;
+  width: 74%;
+  background: #F7F4E6;
+  text-align: right;
+  border-radius: 0 0.3em 0.3em 0;
+  font-size: 1.35em;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 15px 10px 0;
+}
+.info .container a > div {
+  background: white;
+  height: 100%;
+  width: 25%;
+  text-align: center;
+}
+.info > img {
+  display: none;
+  max-height: 100%;
+}
+
+/* ======== FIN SECCION INFO ========= */
+/* ======== SECCION IMAGENES ========= */
+.imagenes {
+  padding: 3em 1em;
+  background: linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)), url("../img/cancha.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.imagenes .titulo-container-imagenes {
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  font-size: 22px;
+  padding: 0.7em 1.5em;
+  cursor: default;
+}
+.imagenes .titulo-container-imagenes span {
+  text-align: right;
+  font-size: 0.7em;
+  font-weight: 400;
+  display: block;
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.5em 0;
+}
+.carousel button {
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+  display: inline-block;
+  border-radius: 0.3em;
+  cursor: pointer;
+  border: 0.05em solid rgba(100, 100, 100, 0.3);
+  padding: 1em 0.7em;
+  cursor: pointer;
+}
+.carousel__track-container {
+  flex-grow: 1;
+  margin: 0 1em;
+}
+.carousel__track {
+  position: relative;
+}
+.carousel .show-slide {
+  display: block;
+}
+.carousel .is-hidden {
+  visibility: hidden;
+}
+.carousel__slide {
+  text-align: center;
+  position: relative;
+  display: none;
+}
+.carousel__slide > div {
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8em 0.8em 0 0.8em;
+  margin: 0.5em 0;
+  background: #F7F4E6;
+}
+.carousel__slide > div img {
+  width: 100%;
+  display: block;
+}
+.carousel__slide > div p {
+  font-size: 0.8em;
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.carousel__slide img:first-child {
+  margin-bottom: 0.5em;
+}
+
+/* ======== FIN SECCION IMAGENES ========= */
+/* ======== SECCION CONTACTO ========= */
+.contacto {
+  padding: 3em 1em 0 1em;
+  background: #000111;
+}
+.contacto h1 {
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.9em;
+}
+.contacto form {
+  padding: 1.9em 2em;
+  font-size: 22px;
+  border-radius: 0.3em;
+  border: 0.05em solid rgba(255, 255, 255, 0.3);
+}
+.contacto form input,
+.contacto form textarea {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  background: #4B4B4C;
+  color: white;
+  border: none;
+  border-radius: 0.3em;
+  font-size: 0.6em;
+  padding: 0.8em;
+  margin: 1.5em 0;
+}
+.contacto form input::placeholder,
+.contacto form textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+}
+.contacto form textarea:-ms-input-placeholder,
+.contacto form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+.contacto form textarea::-ms-input-placeholder,
+.contacto form input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+.contacto form input[type=submit] {
+  background: #F2361C;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.mas-contacto {
+  color: white;
+  font-size: 0.5em;
+  margin-bottom: 30px;
+  line-height: 1.5em;
+}
+
+/* ======== FIN SECCION CONTACTO ========= */
+/* ======== INICIO FOOTER ========= */
+footer {
+  background: #000111;
+  color: #fff;
+  text-align: left;
+}
+footer .info-contacto-footer {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  margin: 0 auto;
+  padding: 2.5em 0;
+}
+footer .info-contacto-footer a {
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  min-height: 130px;
+  max-width: 555px;
+  border-radius: 0.3em;
+  border: 0.05em solid rgba(255, 255, 255, 0.3);
+}
+footer .info-contacto-footer a span:last-child {
+  margin-top: 10px;
+}
+footer .info-contacto-footer a:nth-child(2) {
+  margin: 1.5em 0 0 0;
+}
+footer .info-contacto-footer a i {
+  margin-bottom: 0.3em;
+}
+footer .info-contacto-footer i {
+  font-size: 1.9em;
+}
+footer .info-contacto-footer span {
+  margin-left: 0.7em;
+  font-size: 0.7em;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .copyright {
+  display: block;
+  text-align: center;
+  font-size: 0.8em;
+  border-top: 1.5px solid #4B4B4C;
+  padding: 1.5em;
+  margin: 0;
+  line-height: 1.5em;
+}
+footer .copyright span:first-child {
+  display: block;
+}
+footer .copyright a {
+  color: #F2361C;
+  text-decoration: none;
+}
+
+/* ======== FIN FOOTER ========= */
+@media (min-width: 576px) {
+  .info-contacto-footer span {
+    font-size: 1.3em;
+  }
+}
+#pdf1,
+#pdf2,
+#pdf3,
+#pdf4,
+#pdf5 {
+  max-width: 576px;
+  width: 100%;
+  padding: 50px 0;
+}
+
+@media (min-width: 768px) {
+  /* ANIMACION EN TABLET */
+  @keyframes animacionPelota {
+    0% {
+      left: -100;
+    }
+    100% {
+      left: 100%;
+      transform: rotate(3500deg);
+    }
+  }
+  #banner {
+    padding: 8em;
+    margin-top: 150px;
+  }
+  #banner > div {
+    max-width: 90%;
+  }
+  #banner .titulo {
+    max-width: 512px;
+  }
+
+  .email__contenedor {
+    padding: 75px;
+    margin: 0;
+  }
+
+  /* FIN ANIMACION EN TABLET */
+  .info {
+    position: relative;
+  }
+  .info .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .info .container > a {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    height: 100%;
+    transition: transform 0.25s ease-in-out;
+  }
+  .info .container > a:nth-child(1) {
+    border: none;
+    border-top: 15px solid #FF3000;
+  }
+  .info .container > a:nth-child(2) {
+    border: none;
+    border-top: 15px solid #FFEA00;
+  }
+  .info .container > a:nth-child(3) {
+    border: none;
+    border-top: 15px solid #7DFF00;
+  }
+  .info .container > a:hover {
+    transform: scale(1.25);
+    transition: transform 0.25s ease-in-out;
+  }
+  .info .container img {
+    height: 200px;
+    margin: 30px 15px;
+  }
+  .info .container h2 {
+    display: flex;
+    font-weight: bold;
+    color: #3A3A3A;
+    width: 100%;
+    background: #F7F4E6;
+    text-align: left;
+    border-radius: 0 0 0.3em 0.3em;
+    font-size: 1.65em;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px 8px;
+  }
+  .info > img {
+    display: none;
+    height: 85%;
+    position: absolute;
+    align-items: center;
+    right: -3%;
+    top: 2.75em;
+    z-index: 8;
+  }
+
+  .carousel {
+    margin: 100px 0;
+  }
+  .carousel__track {
+    flex-grow: 1;
+    margin: 0 15px;
+  }
+  .carousel__slide {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .carousel__slide > div p {
+    font-size: 1em;
+  }
+  .carousel__slide > div {
+    width: 48%;
+    max-width: 1000px;
+    padding: 0.8em 0.8em 0 0.8em;
+    background: #F7F4E6;
+    object-fit: cover;
+  }
+  .carousel__slide > div:first-child {
+    transform: rotate(3deg);
+  }
+  .carousel__slide > div:last-child {
+    transform: rotate(-1deg);
+  }
+  .carousel__slide img:first-child {
+    margin-bottom: 0;
+  }
+
+  .imagenes h1 {
+    font-size: 1.65rem;
+  }
+
+  .contacto form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .contacto form input {
+    flex-basis: 32%;
+  }
+  .contacto form input,
+.contacto form textarea {
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 1em;
+  }
+  .contacto form input[type=submit] {
+    flex-basis: 100%;
+  }
+
+  footer .info-contacto-footer {
+    font-size: 1.5em;
+    flex-direction: row;
+  }
+  footer .info-contacto-footer a:nth-child(2) {
+    margin: 0;
+  }
+
+  header .contenedor-logo {
+    font-size: 19px;
+  }
+  header .cambiar-idioma {
+    top: 96px;
+  }
+
+  .mas-contacto {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-size: 0.65em;
+  }
+}
+@media (min-width: 1124px) {
+  /* ANIMACION EN LAPTOP */
+  @keyframes animacionPelota {
+    0% {
+      left: -100;
+    }
+    100% {
+      left: 100%;
+      transform: rotate(4700deg);
+    }
+  }
+  /* FIN ANIMACION EN LAPTOP */
+  header {
+    padding: 15px 0 30px 0;
+  }
+  header .container .menu-icon,
+header .container .texto-logo {
+    display: none;
+  }
+  header .container .contenedor-logo {
+    font-size: 28px;
+  }
+  header .container > img {
+    height: 2.8em;
+    display: inline-block;
+    align-self: center;
+  }
+  header .cambiar-idioma {
+    top: 129px;
+    right: 0;
+    left: auto;
+    width: 15%;
+    background: white;
+    border-radius: 0 0 0 35px;
+  }
+
+  .imagenes h1 {
+    font-size: 1.8rem;
+  }
+  .imagenes .carousel__slide > div:hover {
+    transform: scale(1.7);
+    position: relative;
+    transition: all 0.35s ease-in-out;
+    z-index: 8;
+  }
+  .imagenes > div p {
+    font-size: 1.1em;
+  }
+
+  #banner {
+    background: white;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin-top: 0;
+  }
+  #banner .container {
+    max-width: 1124px;
+    z-index: 7;
+  }
+  #banner video {
+    display: inline-block;
+    width: 30em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.8rem;
+  }
+  #banner .caja-banner {
+    width: 60%;
+    z-index: 7;
+    margin-top: 180px;
+    font-size: 0.8em;
+  }
+  #banner p {
+    font-size: 0.9em;
+  }
+  #banner .titulo {
+    max-width: 90%;
+  }
+  #banner h1 {
+    font-size: 4em;
+    line-height: 0.8;
+  }
+  #banner h2 {
+    font-size: 2em;
+  }
+  #banner > img {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    z-index: 5;
+  }
+  #banner > div:first-child {
+    display: block;
+    background: white;
+    position: absolute;
+    left: 10%;
+    top: 0;
+    bottom: 0;
+    height: 150%;
+    width: 50%;
+    border-radius: 0 50% 50% 0;
+    z-index: 6;
+    overflow: hidden;
+  }
+
+  .info {
+    position: relative;
+    z-index: 7;
+  }
+  .info .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .info .container > a {
+    width: 30%;
+  }
+  .info .container img {
+    height: 300px;
+    margin: 30px 15px;
+  }
+  .info .container h2 {
+    font-size: 1.85em;
+  }
+  .info > img {
+    display: flex;
+  }
+
+  .contacto h1 {
+    font-size: 1.8rem;
+  }
+
+  .show-main-nav {
+    display: inline-block;
+  }
+
+  nav {
+    z-index: 20;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    width: 100%;
+  }
+  nav ul {
+    margin: 0 auto;
+    max-width: 800px;
+    font-weight: bold;
+    padding: 1em 1.5em;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, #f4e6a8 100%);
+    display: inline-block;
+    border-radius: 0.3em;
+    cursor: pointer;
+    border: 0.05em solid rgba(100, 100, 100, 0.3);
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  nav ul:hover {
+    background: linear-gradient(to bottom, white 0%, rgba(244, 230, 168, 0.7) 100%);
+    transition: all 1s ease-in-out;
+  }
+  nav ul li {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    text-align: center;
+    width: 191px;
+    display: flex;
+    border: none;
+  }
+  nav ul li a {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0;
+  }
+  nav ul li:hover {
+    margin-bottom: -5px;
+    border-bottom: 5px solid #FF3000;
+    transition: border-bottom 0.1s ease-in-out;
+    background: none;
+  }
+  nav ul li .nav-element::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    background: gray;
+    height: 15px;
+    width: 1px;
+  }
+  nav a {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+@media (min-width: 1380px) {
+  #banner .caja-banner {
+    font-size: 1em;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
